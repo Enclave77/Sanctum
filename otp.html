@@ -10,7 +10,27 @@ const supabase = createClient(
   "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InRmZHVkb2Fpeml4a2lpdWpkcm5qIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjE3NDE0MDMsImV4cCI6MjA3NzMxNzQwM30.2PrUQoK5nEjTNr5IaifWisTQn5y3dcGkUiePTv4iMvc"
 );
 
-const { error } = await supabase.auth.exchangeCodeForSession(window.location.href);
+// URL からパラメータ取得
+const url = new URL(location.href);
+const code = url.searchParams.get("code");          // OAuth/PKCE 用
+const token_hash = url.searchParams.get("token_hash"); // Magic Link 用
+const type = url.searchParams.get("type") || "magiclink";
+
+let error;
+
+// 1) Magic Link（token_hashあり）
+if (token_hash) {
+  ({ error } = await supabase.auth.verifyOtp({ type, token_hash }));
+}
+// 2) OAuth/PKCE（codeあり）に備えたフォールバック
+else if (code) {
+  ({ error } = await supabase.auth.exchangeCodeForSession(location.href));
+}
+// 3) どちらも無い
+else {
+  error = { message: "URLに認証情報がありません" };
+}
+
 if (error) {
   s.textContent = "リンク無効/ドメイン不一致: " + error.message;
 } else {
