@@ -1,30 +1,24 @@
 <!DOCTYPE html>
-<html lang="ja">
-<meta charset="UTF-8"><title>確認中</title>
-<body><p>ログイン確認中…</p>
-<script type="module">
-  import { createClient } from "https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm";
-  const supabase = createClient("https://<project-ref>.supabase.co","<anon-public-key>");
-  const { data:{ session } } = await supabase.auth.getSession();
-  document.body.innerHTML = session
-    ? "<h2>ログイン成功</h2><p><a href='member.html'>会員ページへ</a></p>"
-    : "<p>リンクが無効または期限切れです。</p>";
-</script>
-</body>
-</html>
-<!DOCTYPE html><meta charset="utf-8"><title>確認中</title><p id="s">確認中…</p>
+<meta charset="utf-8">
+<title>確認中</title>
+<p id="s">確認中…</p>
 <script type="module">
 import { createClient } from "https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm";
-const supabase=createClient("https://<ref>.supabase.co","<anon>");
-const { data:{ session } } = await supabase.auth.getSession();
-if(!session){ s.textContent="リンク無効/期限切れ"; throw 0; }
 
-const code=localStorage.getItem("invite_code")||"";
-await fetch("https://<ref>.supabase.co/rest/v1/invites?code=eq."+encodeURIComponent(code),{
-  method:"PATCH",
-  headers:{'content-type':'application/json','apikey':"<service-less NGなのでEdge推奨>","Authorization":"Bearer <service-key>"},
-  body: JSON.stringify({ used_at: new Date().toISOString() })
-});
-// ↑安全のため本当はEdge Functionで消費する（フロントにService Keyを置かない）
-location.href="member.html";
+const supabase = createClient(
+  "https://tfdudoaizixkiiujdrnj.supabase.co",   // あなたのURL
+  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..."      // あなたのanon key
+);
+
+// ★ これが必須：メール内リンクの code をセッションに交換
+const { error } = await supabase.auth.exchangeCodeForSession(window.location.href);
+if (error) {
+  s.textContent = "リンク無効/ドメイン不一致：" + error.message;
+} else {
+  s.textContent = "ログイン成功。移動します…";
+  // ここで招待コードを消費するなら Edge Function にPOST
+  // await fetch("https://<ref>.functions.supabase.co/consume-code", {...})
+
+  location.href = "member.html";
+}
 </script>
