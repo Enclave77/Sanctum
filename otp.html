@@ -12,3 +12,19 @@
 </script>
 </body>
 </html>
+<!DOCTYPE html><meta charset="utf-8"><title>確認中</title><p id="s">確認中…</p>
+<script type="module">
+import { createClient } from "https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm";
+const supabase=createClient("https://<ref>.supabase.co","<anon>");
+const { data:{ session } } = await supabase.auth.getSession();
+if(!session){ s.textContent="リンク無効/期限切れ"; throw 0; }
+
+const code=localStorage.getItem("invite_code")||"";
+await fetch("https://<ref>.supabase.co/rest/v1/invites?code=eq."+encodeURIComponent(code),{
+  method:"PATCH",
+  headers:{'content-type':'application/json','apikey':"<service-less NGなのでEdge推奨>","Authorization":"Bearer <service-key>"},
+  body: JSON.stringify({ used_at: new Date().toISOString() })
+});
+// ↑安全のため本当はEdge Functionで消費する（フロントにService Keyを置かない）
+location.href="member.html";
+</script>
