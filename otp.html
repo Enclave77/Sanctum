@@ -10,11 +10,19 @@ const supabase = createClient(
   "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InRmZHVkb2Fpeml4a2lpdWpkcm5qIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjE3NDE0MDMsImV4cCI6MjA3NzMxNzQwM30.2PrUQoK5nEjTNr5IaifWisTQn5y3dcGkUiePTv4iMvc"
 );
 
-// URL からパラメータ取得
-const url = new URL(location.href);
-const code = url.searchParams.get("code");          // OAuth/PKCE 用
-const token_hash = url.searchParams.get("token_hash"); // Magic Link 用
-const type = url.searchParams.get("type") || "magiclink";
+// --- ここが重要：search と hash の両方から取得 ---
+function getParams() {
+  const q = new URLSearchParams(location.search);
+  const h = new URLSearchParams(location.hash.startsWith('#') ? location.hash.slice(1) : location.hash);
+  const pick = (k) => q.get(k) || h.get(k);
+  return {
+    code:       pick('code'),
+    token_hash: pick('token_hash'),
+    type:       pick('type') || 'magiclink'
+  };
+}
+
+const { code, token_hash, type } = getParams();
 
 let error;
 
@@ -22,7 +30,7 @@ let error;
 if (token_hash) {
   ({ error } = await supabase.auth.verifyOtp({ type, token_hash }));
 }
-// 2) OAuth/PKCE（codeあり）に備えたフォールバック
+// 2) OAuth/PKCE（codeあり）
 else if (code) {
   ({ error } = await supabase.auth.exchangeCodeForSession(location.href));
 }
