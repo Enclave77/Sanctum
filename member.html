@@ -3,8 +3,7 @@
 <script type="module">
 import { createClient } from "https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm";
 const sb = createClient("https://tfdudoaizixkiiujdrnj.supabase.co","eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InRmZHVkb2Fpeml4a2lpdWpkcm5qIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjE3NDE0MDMsImV4cCI6MjA3NzMxNzQwM30.2PrUQoK5nEjTNr5IaifWisTQn5y3dcGkUiePTv4iMvc");
-const { data:{ session } } = await sb.auth.getSession();
-if(!session) location.href = "invite.html";
-else u.textContent = session.user.email + " でログイン";
+const { data:{session} } = await sb.auth.getSession();
+if(!session) location.href="invite.html";
+else u.textContent = session.user.email+" でログイン";
 </script>
-
