@@ -1,19 +1,50 @@
-<!DOCTYPE html><meta charset="utf-8"><pre id="out">診断中…</pre>
-<script type="module">
-import { createClient } from "https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm";
-const supabase = createClient(SUPABASE_URL, SUPABASE_KEY, {
-  auth: { flowType: 'pkce' }
-});
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>確認中 | Sanctum</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      background: #f8f8f8;
+      text-align: center;
+      padding: 60px;
+    }
+  </style>
+</head>
+<body>
+  <h1>確認中...</h1>
+  <p id="status">処理中です。</p>
 
-const q=new URLSearchParams(location.search);
-const h=new URLSearchParams(location.hash.startsWith('#')?location.hash.slice(1):location.hash);
-const pick=k=>q.get(k)||h.get(k);
-const P={code:pick('code'), token_hash:pick('token_hash'), type:pick('type')||'magiclink'};
-out.textContent=JSON.stringify({href:location.href,hash:location.hash,search:location.search,params:P},null,2);
-let err;
-if(P.token_hash){({error:err}=await sb.auth.verifyOtp({type:P.type,token_hash:P.token_hash}))}
-else if(P.code){({error:err}=await sb.auth.exchangeCodeForSession(location.href))}
-else{err={message:"URLに認証パラメータなし"}}
-out.textContent+= err?`\n\nERROR: ${err.message}`:`\n\nOK: ログイン成功`; 
-</script>
+  <script type="module">
+    import { createClient } from "https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm";
 
+    // あなたの Supabase プロジェクト設定
+    const SUPABASE_URL = "https://tfdudoaizixkiiujdrnj.supabase.co";
+    const SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InRmZHVkb2Fpeml4a2lpdWpkcm5qIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjE3NDE0MDMsImV4cCI6MjA3NzMxNzQwM30.2PrUQoK5nEjTNr5IaifWisTQn5y3dcGkUiePTv4iMvc";
+
+    // PKCEモードで初期化
+    const supabase = createClient(SUPABASE_URL, SUPABASE_KEY, {
+      auth: { flowType: 'pkce' }
+    });
+
+    const status = document.getElementById("status");
+
+    try {
+      const { data, error } = await supabase.auth.exchangeCodeForSession(window.location.href);
+
+      if (error) {
+        console.error(error);
+        status.textContent = "リンク無効または期限切れ: " + error.message;
+      } else {
+        status.textContent = "認証成功。移動します...";
+        // 認証後に遷移
+        setTimeout(() => location.href = "member.html", 1200);
+      }
+    } catch (err) {
+      console.error(err);
+      status.textContent = "予期せぬエラー: " + err.message;
+    }
+  </script>
+</body>
+</html>
