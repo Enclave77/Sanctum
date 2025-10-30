@@ -1,0 +1,7 @@
+<!DOCTYPE html><meta charset="utf-8"><title>redirect</title>
+<script>
+// 例: https://.../redirect.html#type=magiclink&token_hash=xxx
+const h = location.hash.startsWith('#') ? location.hash.slice(1) : "";
+const next = "otp.html" + (h ? "?" + h : "");
+location.replace(next);
+</script>
