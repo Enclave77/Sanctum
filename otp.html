@@ -1,7 +1,7 @@
 <!DOCTYPE html><meta charset="utf-8"><pre id="out">診断中…</pre>
 <script type="module">
 import { createClient } from "https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm";
-const sb=createClient("https://tfdudoaizixkiiujdrnj.supabase.co","＜anonをフルで＞");
+const sb=createClient("https://tfdudoaizixkiiujdrnj.supabase.co","eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InRmZHVkb2Fpeml4a2lpdWpkcm5qIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjE3NDE0MDMsImV4cCI6MjA3NzMxNzQwM30.2PrUQoK5nEjTNr5IaifWisTQn5y3dcGkUiePTv4iMvc");
 const q=new URLSearchParams(location.search);
 const h=new URLSearchParams(location.hash.startsWith('#')?location.hash.slice(1):location.hash);
 const pick=k=>q.get(k)||h.get(k);
