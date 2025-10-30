@@ -1,59 +1,20 @@
-<!DOCTYPE html>
-<html lang="ja">
-<head>
-  <meta charset="UTF-8">
-  <title>招待コード入力 | Sanctum</title>
-  <link rel="stylesheet" href="style.css">
-  <style>
-    body{font-family:sans-serif;background:#f8f8f8;text-align:center;padding:48px}
-    input,button{margin:8px;padding:10px;font-size:16px}
-  </style>
-</head>
-<body>
-  <h1>Sanctum</h1>
-  <p>招待コードとメールを入力してください。</p>
-  <hr style="margin:24px 0">
-
-  <h2>招待コード登録</h2>
-  <input id="invite" placeholder="招待コード"><br>
-  <input id="email" type="email" placeholder="メールアドレス"><br>
-  <button onclick="register()">登録</button>
-  <p id="msg"></p>
-
-  <p><a href="terms.html">利用規約</a></p>
-
-  <script type="module">
-    import { createClient } from "https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm";
-
-    const SUPABASE_URL = "https://tfdudoaizixkiiujdrnj.supabase.co";
-    const SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InRmZHVkb2Fpeml4a2lpdWpkcm5qIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjE3NDE0MDMsImV4cCI6MjA3NzMxNzQwM30.2PrUQoK5nEjTNr5IaifWisTQn5y3dcGkUiePTv4iMvc";
-
-  const supabase = createClient(SUPABASE_URL, SUPABASE_KEY, {
-  auth: { flowType: 'pkce' }
-});
-
-
-    async function register() {
-      const invite = document.getElementById("invite").value.trim();
-      const email  = document.getElementById("email").value.trim();
-      const msg    = document.getElementById("msg");
-      if(!invite || !email){ msg.textContent = "入力が足りません。"; return; }
-
-      // 招待コードを保持（otpで消費用）
-      localStorage.setItem("invite_code", invite);
-
-      const { error } = await supabase.auth.signInWithOtp({
-        email,
-        options:{ emailRedirectTo: "https://enclave77.github.io/sanctum/otp.html" }
-      });
-
-      msg.textContent = error ? ("エラー: " + error.message)
-                              : "確認メールを送信しました。メールのリンクを開いてください。";
-    }
-    window.register = register;
-  </script>
-</body>
-</html>
-
-</body>
-</html>
+<!DOCTYPE html><meta charset="utf-8"><title>招待</title>
+<h2>招待コード登録</h2>
+<input id="invite" placeholder="招待コード"><br>
+<input id="email" type="email" placeholder="メール"><br>
+<button id="go">登録</button>
+<p id="msg"></p>
+<script type="module">
+import { createClient } from "https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm";
+const sb = createClient("https://tfdudoaizixkiiujdrnj.supabase.co","＜anon key＞"); // PKCE指定なし
+go.onclick = async () => {
+  const inv = invite.value.trim(), mail = email.value.trim();
+  if(!inv||!mail){ msg.textContent="入力不足"; return; }
+  localStorage.setItem("invite_code", inv);
+  const { error } = await sb.auth.signInWithOtp({
+    email: mail,
+    options: { emailRedirectTo: "https://enclave77.github.io/sanctum/redirect.html" }
+  });
+  msg.textContent = error ? ("エラー: "+error.message) : "確認メールを送信しました";
+};
+</script>
