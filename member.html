@@ -1,32 +1,10 @@
-<!DOCTYPE html>
-<meta charset="utf-8">
-<title>会員ページ</title>
+<!DOCTYPE html><meta charset="utf-8"><title>会員</title>
 <h2 id="u">確認中…</h2>
-<button id="logout" style="display:none">ログアウト</button>
-
 <script type="module">
 import { createClient } from "https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm";
-
-const supabase = createClient(
-  "https://tfdudoaizixkiiujdrnj.supabase.co",  // あなたのURL
-  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InRmZHVkb2Fpeml4a2lpdWpkcm5qIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjE3NDE0MDMsImV4cCI6MjA3NzMxNzQwM30.2PrUQoK5nEjTNr5IaifWisTQn5y3dcGkUiePTv4iMvc"
-);
-
-// セッション取得を必ず待つ
-const { data:{ session }, error } = await supabase.auth.getSession();
-
-if (error) {
-  document.getElementById('u').textContent = "エラー: " + error.message;
-} else if (!session) {
-  // 未ログインなら招待コードページへ
-  location.href = "invite.html";
-} else {
-  document.getElementById('u').textContent = session.user.email + " でログイン中";
-  const btn = document.getElementById('logout');
-  btn.style.display = "inline-block";
-  btn.onclick = async () => {
-    await supabase.auth.signOut();
-    location.href = "invite.html";
-  };
-}
+const sb = createClient("https://tfdudoaizixkiiujdrnj.supabase.co","eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InRmZHVkb2Fpeml4a2lpdWpkcm5qIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjE3NDE0MDMsImV4cCI6MjA3NzMxNzQwM30.2PrUQoK5nEjTNr5IaifWisTQn5y3dcGkUiePTv4iMvc");
+const { data:{ session } } = await sb.auth.getSession();
+if(!session) location.href = "invite.html";
+else u.textContent = session.user.email + " でログイン";
 </script>
+
