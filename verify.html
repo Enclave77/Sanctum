@@ -1,27 +1,57 @@
 <!DOCTYPE html><meta charset="utf-8"><title>確認</title>
-<h2>メールに届いた6桁コードを入力</h2>
+<h2>メールの6桁コードを入力</h2>
 <p id="mail"></p>
 <input id="code" inputmode="numeric" maxlength="6" placeholder="123456">
 <button id="ok" type="button">認証</button>
-<p id="msg"></p>
+<pre id="out" style="text-align:left;white-space:pre-wrap"></pre>
 
 <script type="module">
 import { createClient } from "https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm";
 
+// プロジェクトと同一のURL/anon（invite.htmlと完全一致）
 const sb = createClient(
   "https://tfdudoaizixkiiujdrnj.supabase.co",
   "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InRmZHVkb2Fpeml4a2lpdWpkcm5qIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjE3NDE0MDMsImV4cCI6MjA3NzMxNzQwM30.2PrUQoK5nEjTNr5IaifWisTQn5y3dcGkUiePTv4iMvc"
 );
 
 const email = localStorage.getItem("pending_email") || "";
-mail.textContent = email ? `宛先: ${email}` : "invite.htmlからやり直し";
+mail.textContent = email ? `宛先: ${email}` : "invite.htmlからやり直し（メール未保存）";
 
 ok.onclick = async () => {
-  const token = code.value.trim();
-  if (!email || token.length !== 6) { msg.textContent = "入力不足"; return; }
-  msg.textContent = "確認中…";
-  const { error } = await sb.auth.verifyOtp({ type: "email", email, token });
-  if (error) { msg.textContent = "認証失敗: " + error.message; return; }
+  const token = (document.getElementById('code').value || "").trim();
+  const out = document.getElementById('out');
+  out.textContent = "";
+
+  if (!email || token.length !== 6) {
+    out.textContent = "入力不足（email or 6桁）";
+    return;
+  }
+
+  out.textContent = `verifyOtp開始: email=${email}, token=${token}`;
+  const { data, error } = await sb.auth.verifyOtp({ type:"email", email, token });
+
+  if (error) {
+    out.textContent += `\nERROR: ${error.message}`;
+    return;
+  }
+
+  // セッション確認
+  const s = await sb.auth.getSession();
+  out.textContent += `\nOK: 認証成功\nsession? ${!!s.data.session}`;
+
+  // 遷移先が存在しないと「遷移しない」に見えるので、先に存在チェック
+  try {
+    const r = await fetch("member.html", { method: "HEAD", cache: "no-store" });
+    if (!r.ok) {
+      out.textContent += `\n注意: member.html が見つからない (HTTP ${r.status})`;
+      return;
+    }
+  } catch(e) {
+    out.textContent += `\n注意: member.html 事前チェック失敗: ${e.message}`;
+    return;
+  }
+
+  out.textContent += `\n遷移します…`;
   location.href = "member.html";
 };
 </script>
