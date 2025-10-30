@@ -1,50 +1,18 @@
-<!DOCTYPE html>
-<html lang="ja">
-<head>
-  <meta charset="UTF-8">
-  <title>確認中 | Sanctum</title>
-  <style>
-    body {
-      font-family: sans-serif;
-      background: #f8f8f8;
-      text-align: center;
-      padding: 60px;
-    }
-  </style>
-</head>
-<body>
-  <h1>確認中...</h1>
-  <p id="status">処理中です。</p>
+<!DOCTYPE html><meta charset="utf-8"><title>確認中</title>
+<p id="s">確認中…</p>
+<script type="module">
+import { createClient } from "https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm";
+const sb = createClient("https://tfdudoaizixkiiujdrnj.supabase.co","eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InRmZHVkb2Fpeml4a2lpdWpkcm5qIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjE3NDE0MDMsImV4cCI6MjA3NzMxNzQwM30.2PrUQoK5nEjTNr5IaifWisTQn5y3dcGkUiePTv4iMvc");
+const q = new URLSearchParams(location.search);
+const token_hash = q.get("token_hash");
+const type = q.get("type") || "magiclink";
+try{
+  if(!token_hash) throw new Error("URLに認証パラメータなし");
+  const { error } = await sb.auth.verifyOtp({ type, token_hash });
+  if(error) throw error;
+  s.textContent = "認証成功。遷移します…";
+  setTimeout(()=>location.href="member.html", 800);
+}catch(e){ s.textContent = "リンク無効/期限切れ: " + e.message; }
+</script>
 
-  <script type="module">
-    import { createClient } from "https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm";
-
-    // あなたの Supabase プロジェクト設定
-    const SUPABASE_URL = "https://tfdudoaizixkiiujdrnj.supabase.co";
-    const SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InRmZHVkb2Fpeml4a2lpdWpkcm5qIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjE3NDE0MDMsImV4cCI6MjA3NzMxNzQwM30.2PrUQoK5nEjTNr5IaifWisTQn5y3dcGkUiePTv4iMvc";
-
-    // PKCEモードで初期化
-    const supabase = createClient(SUPABASE_URL, SUPABASE_KEY, {
-      auth: { flowType: 'pkce' }
-    });
-
-    const status = document.getElementById("status");
-
-    try {
-      const { data, error } = await supabase.auth.exchangeCodeForSession(window.location.href);
-
-      if (error) {
-        console.error(error);
-        status.textContent = "リンク無効または期限切れ: " + error.message;
-      } else {
-        status.textContent = "認証成功。移動します...";
-        // 認証後に遷移
-        setTimeout(() => location.href = "member.html", 1200);
-      }
-    } catch (err) {
-      console.error(err);
-      status.textContent = "予期せぬエラー: " + err.message;
-    }
-  </script>
-</body>
 </html>
