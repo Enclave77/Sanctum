@@ -2,17 +2,14 @@
 <p id="s">確認中…</p>
 <script type="module">
 import { createClient } from "https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm";
-const sb = createClient("https://tfdudoaizixkiiujdrnj.supabase.co","eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InRmZHVkb2Fpeml4a2lpdWpkcm5qIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjE3NDE0MDMsImV4cCI6MjA3NzMxNzQwM30.2PrUQoK5nEjTNr5IaifWisTQn5y3dcGkUiePTv4iMvc");
+const sb = createClient("https://tfdudoaizixkiiujdrnj.supabase.co","＜anon key＞");
 const q = new URLSearchParams(location.search);
 const token_hash = q.get("token_hash");
-const type = q.get("type") || "magiclink";
 try{
   if(!token_hash) throw new Error("URLに認証パラメータなし");
-  const { error } = await sb.auth.verifyOtp({ type, token_hash });
+  const { error } = await sb.auth.verifyOtp({ type:"magiclink", token_hash });
   if(error) throw error;
   s.textContent = "認証成功。遷移します…";
   setTimeout(()=>location.href="member.html", 800);
 }catch(e){ s.textContent = "リンク無効/期限切れ: " + e.message; }
 </script>
-
-</html>
