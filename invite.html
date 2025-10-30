@@ -1,14 +1,58 @@
-<script type="module">
-import { createClient } from "https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm";
-const sb = createClient("https://tfdudoaizixkiiujdrnj.supabase.co","eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InRmZHVkb2Fpeml4a2lpdWpkcm5qIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjE3NDE0MDMsImV4cCI6MjA3NzMxNzQwM30.2PrUQoK5nEjTNr5IaifWisTQn5y3dcGkUiePTv4iMvc");
-async function register(){
-  const mail = email.value.trim(), inv = invite.value.trim();
-  if(!mail||!inv){ msg.textContent="入力不足"; return; }
-  localStorage.setItem("pending_email", mail);
-  localStorage.setItem("invite_code", inv);
-  const { error } = await sb.auth.signInWithOtp({ email: mail, options:{ shouldCreateUser:true }});
-  msg.innerHTML = error ? ("エラー: "+error.message)
-                        : '6桁コードをメール送信。<a href="verify.html">ここを開く</a>';
-}
-window.register = register;
-</script>
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>招待コード登録 | Sanctum</title>
+  <style>
+    body { font-family:sans-serif; background:#f8f8f8; text-align:center; padding:48px; }
+    input,button { margin:8px; padding:10px; font-size:16px; }
+  </style>
+</head>
+<body>
+  <h1>Sanctum</h1>
+  <p>招待コードとメールを入力してください。</p>
+  <hr style="margin:24px 0">
+
+  <h2>登録フォーム</h2>
+  <input id="invite" placeholder="招待コード"><br>
+  <input id="email" type="email" placeholder="メールアドレス"><br>
+  <button id="go" type="button">登録</button>
+  <p id="msg"></p>
+
+  <p><a href="verify.html">すでにコードを受け取った方はこちら</a></p>
+
+  <script type="module">
+    import { createClient } from "https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm";
+    const sb = createClient(
+      "https://tfdudoaizixkiiujdrnj.supabase.co",
+      "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InRmZHVkb2Fpeml4a2lpdWpkcm5qIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjE3NDE0MDMsImV4cCI6MjA3NzMxNzQwM30.2PrUQoK5nEjTNr5IaifWisTQn5y3dcGkUiePTv4iMvc"
+    );
+
+    const go = document.getElementById("go");
+    const msg = document.getElementById("msg");
+
+    go.onclick = async () => {
+      const invite = document.getElementById("invite").value.trim();
+      const email  = document.getElementById("email").value.trim();
+      if (!invite || !email) { msg.textContent = "入力不足です"; return; }
+
+      // verifyで使う情報を保存
+      localStorage.setItem("invite_code", invite);
+      localStorage.setItem("pending_email", email);
+
+      // メール送信（6桁コード）
+      const { error } = await sb.auth.signInWithOtp({
+        email,
+        options: { shouldCreateUser: true }
+      });
+
+      if (error) {
+        msg.textContent = "エラー: " + error.message;
+      } else {
+        msg.textContent = "6桁コードを送信しました。自動で次へ進みます…";
+        setTimeout(() => location.href = "verify.html", 1500);
+      }
+    };
+  </script>
+</body>
+</html>
