@@ -1,48 +1,16 @@
-<!DOCTYPE html>
-<meta charset="utf-8">
-<title>確認中</title>
-<p id="s">確認中…</p>
+<!DOCTYPE html><meta charset="utf-8"><pre id="out">診断中…</pre>
 <script type="module">
 import { createClient } from "https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm";
-
-const supabase = createClient(
-  "https://tfdudoaizixkiiujdrnj.supabase.co",
-  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InRmZHVkb2Fpeml4a2lpdWpkcm5qIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjE3NDE0MDMsImV4cCI6MjA3NzMxNzQwM30.2PrUQoK5nEjTNr5IaifWisTQn5y3dcGkUiePTv4iMvc"
-);
-
-// --- ここが重要：search と hash の両方から取得 ---
-function getParams() {
-  const q = new URLSearchParams(location.search);
-  const h = new URLSearchParams(location.hash.startsWith('#') ? location.hash.slice(1) : location.hash);
-  const pick = (k) => q.get(k) || h.get(k);
-  return {
-    code:       pick('code'),
-    token_hash: pick('token_hash'),
-    type:       pick('type') || 'magiclink'
-  };
-}
-
-const { code, token_hash, type } = getParams();
-
-let error;
-
-// 1) Magic Link（token_hashあり）
-if (token_hash) {
-  ({ error } = await supabase.auth.verifyOtp({ type, token_hash }));
-}
-// 2) OAuth/PKCE（codeあり）
-else if (code) {
-  ({ error } = await supabase.auth.exchangeCodeForSession(location.href));
-}
-// 3) どちらも無い
-else {
-  error = { message: "URLに認証情報がありません" };
-}
-
-if (error) {
-  s.textContent = "リンク無効/ドメイン不一致: " + error.message;
-} else {
-  s.textContent = "ログイン成功。移動します…";
-  location.href = "member.html";
-}
+const sb=createClient("https://tfdudoaizixkiiujdrnj.supabase.co","＜anonをフルで＞");
+const q=new URLSearchParams(location.search);
+const h=new URLSearchParams(location.hash.startsWith('#')?location.hash.slice(1):location.hash);
+const pick=k=>q.get(k)||h.get(k);
+const P={code:pick('code'), token_hash:pick('token_hash'), type:pick('type')||'magiclink'};
+out.textContent=JSON.stringify({href:location.href,hash:location.hash,search:location.search,params:P},null,2);
+let err;
+if(P.token_hash){({error:err}=await sb.auth.verifyOtp({type:P.type,token_hash:P.token_hash}))}
+else if(P.code){({error:err}=await sb.auth.exchangeCodeForSession(location.href))}
+else{err={message:"URLに認証パラメータなし"}}
+out.textContent+= err?`\n\nERROR: ${err.message}`:`\n\nOK: ログイン成功`; 
 </script>
+
