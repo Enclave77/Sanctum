@@ -2,45 +2,79 @@
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
-  <title>Sanctum | Member</title>
+  <title>会員ページ | Sanctum</title>
   <style>
-    body { font-family:sans-serif; background:#fafafa; text-align:center; padding:60px; }
-    button { margin:12px; padding:10px 18px; font-size:15px; }
-    #info { margin-top:20px; font-size:14px; color:#555; }
+    body{font-family:sans-serif;background:#fafafa;margin:0;padding:32px}
+    .box{max-width:680px;margin:auto;background:#fff;border:1px solid #eee;padding:24px}
+    button{padding:10px 14px;font-size:14px;cursor:pointer}
+    .dim{color:#666;font-size:14px}
   </style>
 </head>
 <body>
-  <h1>Sanctum</h1>
-  <h2>認証完了</h2>
-  <p>このページは登録済みユーザー専用です。</p>
-  <p id="info">セッション確認中...</p>
-  <button id="logout">ログアウト</button>
+  <div class="box">
+    <h1>Sanctum 会員エリア</h1>
+    <p id="hello" class="dim">確認中…</p>
+    <hr>
+    <div id="content" style="display:none">
+      <p>ここに限定コンテンツを置く。</p>
+      <ul>
+        <li>次回案内や招待コードの残数表示など</li>
+        <li>評価フォームへのリンク</li>
+      </ul>
+      <button id="logout">ログアウト</button>
+    </div>
+  </div>
 
   <script type="module">
     import { createClient } from "https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm";
 
-    const supabase = createClient(
-      "https://tfdudoaizixkiiujdrnj.supabase.co",
-      "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InRmZHVkb2Fpeml4a2lpdWpkcm5qIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjE3NDE0MDMsImV4cCI6MjA3NzMxNzQwM30.2PrUQoK5nEjTNr5IaifWisTQn5y3dcGkUiePTv4iMvc"
-    );
+    const SUPABASE_URL = "https://tfdudoaizixkiiujdrnj.supabase.co";
+    const SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InRmZHVkb2Fpeml4a2lpdWpkcm5qIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjE3NDE0MDMsImV4cCI6MjA3NzMxNzQwM30.2PrUQoK5nEjTNr5IaifWisTQn5y3dcGkUiePTv4iMvc";
+    const supabase = createClient(SUPABASE_URL, SUPABASE_KEY, { auth:{ flowType:'pkce' } });
 
-    const info = document.getElementById("info");
-    const logout = document.getElementById("logout");
+    const hello   = document.getElementById('hello');
+    const content = document.getElementById('content');
+    const logout  = document.getElementById('logout');
 
-    // 現在のセッション確認
-    const { data, error } = await supabase.auth.getUser();
-    if (error || !data?.user) {
-      info.textContent = "未ログインまたはセッション切れ。invite.htmlに戻ります。";
-      setTimeout(()=>location.href="invite.html",1500);
-    } else {
-      info.textContent = `ログイン中: ${data.user.email}`;
+    // セッション確認 → なければ入口へ
+    const { data: sessionRes } = await supabase.auth.getSession();
+    if (!sessionRes.session) {
+      location.href = "invite.html"; // 未ログインは入口へ
     }
 
-    // ログアウトボタン
-    logout.onclick = async ()=>{
+    // ユーザー取得
+    const { data: userRes, error: userErr } = await supabase.auth.getUser();
+    if (userErr || !userRes.user) {
+      location.href = "invite.html";
+    }
+    const user = userRes.user;
+
+    // プロフィールを保存/更新（初回作成も可）
+    await supabase.from('profiles').upsert({
+      id: user.id,
+      email: user.email ?? null
+    });
+
+    // 画面反映
+    hello.textContent = `ようこそ：${user.email ?? '未登録メール'}`;
+    content.style.display = 'block';
+
+    // 任意：プロフィールを読む例
+    // const { data: me } = await supabase.from('profiles').select('*').eq('id', user.id).single();
+
+    // ログアウト
+    logout.onclick = async () => {
       await supabase.auth.signOut();
-      location.href="invite.html";
+      location.href = "invite.html";
     };
+
+    // セッション変化を監視（任意）
+    supabase.auth.onAuthStateChange((_e, s) => {
+      if (!s) location.href = "invite.html";
+    });
   </script>
+</body>
+</html>
+
 </body>
 </html>
