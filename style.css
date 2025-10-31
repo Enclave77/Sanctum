@@ -1,3 +1,80 @@
-body {font-family:sans-serif; text-align:center; margin-top:10%;}
-h1 {font-size:24px; color:#222;}
-p {color:#555;}
+/* ===== Sanctum minimal design system ===== */
+:root{
+  --bg: #fafafa;
+  --fg: #0f0f0f;
+  --muted:#6b7280;
+  --card:#ffffff;
+  --border:#e5e7eb;
+  --accent:#5b6bff;      /* アクセントは青系1色だけ */
+  --radius:12px;
+  --shadow: 0 4px 16px rgba(0,0,0,.06);
+  --space-1:8px; --space-2:12px; --space-3:16px;
+  --space-4:24px; --space-5:32px; --space-6:48px;
+  --font-sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", "Noto Sans JP", Arial, sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, monospace;
+  --fs-1: clamp(28px, 3.2vw, 36px);
+  --fs-2: 20px; --fs-3: 16px; --fs-4: 14px;
+  --line: 1.65;
+}
+@media (prefers-color-scheme: dark){
+  :root{
+    --bg:#0b0b0c; --fg:#f6f6f7; --muted:#9aa0a6; --card:#121214; --border:#222326; --shadow:none;
+    --accent:#7d8cff;
+  }
+}
+
+/* Base */
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0; background:var(--bg); color:var(--fg);
+  font-family:var(--font-sans); line-height:var(--line);
+  -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility;
+}
+a{color:var(--accent); text-decoration:none}
+a:hover{text-decoration:underline}
+.container{max-width:720px; margin:0 auto; padding: var(--space-6) var(--space-4)}
+.h1{font-size:var(--fs-1); font-weight:700; letter-spacing:.02em; margin:0 0 var(--space-4)}
+.p-muted{color:var(--muted)}
+
+/* Card */
+.card{
+  background:var(--card); border:1px solid var(--border); border-radius:var(--radius);
+  padding:var(--space-5); box-shadow:var(--shadow);
+}
+
+/* Form */
+.input{
+  width:100%; font-size:var(--fs-3); padding:12px 14px; border-radius:10px;
+  border:1px solid var(--border); background:var(--card); color:var(--fg);
+  transition:border-color .15s ease, box-shadow .15s ease;
+}
+.input:focus{outline:none; border-color:var(--accent); box-shadow:0 0 0 3px color-mix(in oklab, var(--accent) 22%, transparent)}
+.row{display:flex; gap:var(--space-3); flex-wrap:wrap}
+.row > *{flex:1}
+
+/* Button */
+.btn{
+  display:inline-flex; align-items:center; justify-content:center; gap:8px;
+  padding:12px 18px; border-radius:10px; border:1px solid transparent;
+  background:var(--accent); color:#fff; font-weight:600; cursor:pointer;
+  transition: transform .02s ease, filter .15s ease;
+}
+.btn:hover{filter:brightness(1.05)}
+.btn:active{transform:translateY(1px)}
+.btn.outline{background:transparent; color:var(--fg); border-color:var(--border)}
+.btn.full{width:100%}
+
+/* Notice / error */
+.note{font-size:var(--fs-4); color:var(--muted); margin-top:var(--space-3)}
+.error{color:#e5484d}
+
+/* Header/Footer */
+.sitehead{padding:var(--space-5) 0}
+.sitefoot{padding:var(--space-6) 0; color:var(--muted); font-size:var(--fs-4); text-align:center}
+.hr{height:1px; background:var(--border); margin:var(--space-5) 0}
+
+/* Utility */
+.mt-4{margin-top:var(--space-4)} .mt-5{margin-top:var(--space-5)}
+.center{text-align:center}
+.hide{display:none}
