@@ -657,3 +657,24 @@ input[type="submit"].form-control:hover{
   /* 背景上の「初めに、聖域を」は位置そのまま */
   #iz29i{ position:absolute !important; right:14px !important; bottom:12px !important; }
 }
+
+/* --- さっきの大きなモバイル用レイアウト調整 --- */
+@media (max-width:480px){
+  ...（前の長いやつ）...
+}
+
+/* --- 追加の微調整 --- */
+@media (max-width:480px){
+  #i5hev{ margin-bottom:4px !important; }
+  #iww9z{ margin-top:0 !important; }
+  #if5oz{
+    font-size:16.5px !important;
+    font-weight:500 !important;
+    color:#7eaad4 !important;
+  }
+  #ibnhf-2{
+    font-size:15px !important;
+    font-weight:400 !important;
+    color:#9dbcd9 !important;
+  }
+}
