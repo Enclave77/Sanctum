@@ -629,50 +629,69 @@ input[type="submit"].form-control:hover{
     font-size:9px;
     top:554px;
   }
-  /* --------- Tablet 以下で安全化 --------- */
-@media (max-width: 992px){
-  img { width:100%; height:auto; display:block; }
-  #iwfdv6{ min-height:auto !important; }
-  /* 文字サイズだけ軽く調整 */
-  h1{ font-size:36px; }
-  h2{ font-size:28px; }
 }
 
-/* --------- Mobile 最適化 --------- */
+/* ===== Mobile typography/layout only ===== */
 @media (max-width: 480px){
-  /* 余白と基本整列 */
-  body{ padding:0 16px env(safe-area-inset-bottom) 16px; }
-  .gjs-section{ padding:16px 0; margin:0; flex-direction:column !important; }
 
-  /* ヒーロー画像は可変に */
-  #iwfdv6{ min-height:auto !important; }
-  #iwfdv6 img{ width:100%; height:auto; display:block; }
-
-  /* タイトル系を左寄せにして縦に流す */
-  #i6bps,
-  #iz29i,
-  #i5hev,
-  #iww9z,
-  #if5oz,
-  #ibnhf,
-  #ibnhf-2{
-    position:static !important;
-    top:auto !important; right:auto !important; bottom:auto !important; left:auto !important;
-    display:block !important;
-    margin:8px 0 0 0 !important;
-    text-align:left !important;
+  /* ヒーローの高さと見え方だけ軽調整 */
+  #iwfdv6{ min-height: 52vh !important; background-position:center; }
+  /* 右下の白文字（「初めに、聖域を」）を読みやすく */
+  #iz29i{
+    position:absolute !important;
+    bottom: 12px !important;
+    right: 12px !important;
+    left:auto !important; top:auto !important;
+    font-size: 4.2vw !important;          /* 約15〜18px */
+    line-height: 1.35 !important;
+    color: rgba(255,255,255,.95) !important;
+    text-shadow: 0 2px 6px rgba(0,0,0,.35) !important;
+    font-weight: 300 !important;
+    padding: 0 !important;
   }
 
-  /* 見出し・本文のサイズ */
-  h1{ font-size:28px; }
-  h2{ font-size:24px; }
-  p { font-size:14px; line-height:1.8; color:#666; }
-
-  /* リンクの読みやすさ */
-  .gjs-t-link{
-    font-size:12px !important;
-    margin:0 !important;
+  /* ロゴ「Enclave」 */
+  #io3aji{
+    position:absolute !important;
+    top: 8px !important;
+    left: 12px !important;
+    font-size: 6.4vw !important;           /* 約22〜24px */
+    padding: 0 !important;
+    color: rgba(150,183,218,.9) !important;
   }
-}
 
+  /* 見出し “Sanctum” は画像の下で左寄せに */
+  #i5hev{
+    position: static !important;
+    margin: 18px 16px 6px !important;
+    font-size: 9.2vw !important;           /* 約33〜36px */
+    line-height: 1.15 !important;
+    color: #6d6d6d !important;
+    font-weight: 500 !important;
+  }
+
+  /* 説明文のブロック */
+  #iww9z{
+    position: static !important;
+    margin: 6px 16px 14px !important;
+    font-size: 3.6vw !important;           /* 約13〜14px */
+    line-height: 1.8 !important;
+    color: #666 !important;
+  }
+  #ifd24, #ibeyk{ margin:0 0 6px 0 !important; }
+
+  /* リンクを縦に整列＋押しやすく */
+  #if5oz, #ibnhf, #ibnhf-2{
+    position: static !important;
+    display: inline-block !important;
+    margin: 6px 16px 0 !important;
+    font-size: 3.8vw !important;           /* 約14〜15px */
+    line-height: 1.6 !important;
+    color: #8fb6da !important;
+    text-decoration: underline !important;
+  }
+
+  /* セクションの左右余白を統一 */
+  .gjs-section{ padding: 16px 0 !important; }
+  body{ padding: 0 0 24px 0 !important; }
 }
