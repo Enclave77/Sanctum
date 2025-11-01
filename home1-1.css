@@ -631,47 +631,55 @@ input[type="submit"].form-control:hover{
   }
 }
 
-/* ===== Mobile fine layout alignments ===== */
+/* ===== Mobile final layout refine ===== */
 @media (max-width:480px){
 
-  /* Sanctum と本文を左揃えに */
+  /* Sanctum */
   #i5hev{
     position: static !important;
     font-size: 34px !important;
     font-weight: 500 !important;
     color: #6d6d6d !important;
     line-height: 1.15 !important;
-    margin: 22px 0 6px 20px !important; /* 左に寄せる */
+    margin: 22px 0 6px 20px !important;
     text-align: left !important;
   }
 
-  /* 説明文（18歳を過ぎた〜） */
+  /* 説明文を上に配置（申請より上） */
   #iww9z{
+    order: -1 !important; /* 順序を上に */
     position: static !important;
-    margin: 0 20px 20px 20px !important;
+    margin: 6px 20px 10px 20px !important;
     font-size: 14px !important;
     line-height: 1.9 !important;
     color: #666 !important;
     text-align: left !important;
   }
 
-  /* 入域申請・利用規約も左揃えに */
-  #if5oz, #ibnhf, #ibnhf-2{
-    position: static !important;
+  /* 入域申請・利用規約（1個だけ表示） */
+  #if5oz{
     display: inline-block !important;
     font-size: 15px !important;
     line-height: 1.7 !important;
     color: #8fb6da !important;
     text-decoration: underline !important;
-    margin: 4px 12px 0 20px !important;
-    text-align: left !important;
+    margin: 8px 12px 0 20px !important;
+  }
+  #ibnhf{ display:none !important; } /* 利用規約重複を非表示 */
+  #ibnhf-2{
+    display: inline-block !important;
+    font-size: 15px !important;
+    line-height: 1.7 !important;
+    color: #8fb6da !important;
+    text-decoration: underline !important;
+    margin: 8px 12px 0 20px !important;
   }
 
-  /* 初めに、聖域を — 少し下げる＋右寄り維持 */
+  /* 「初めに、聖域を」位置微調整 */
   #iz29i{
     position: absolute !important;
-    bottom: 16px !important;
-    right: 12px !important;
+    bottom: 12px !important;
+    right: 14px !important;
     font-size: 15px !important;
     color: rgba(255,255,255,.96) !important;
     text-shadow: 0 2px 6px rgba(0,0,0,.35) !important;
