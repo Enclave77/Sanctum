@@ -631,52 +631,44 @@ input[type="submit"].form-control:hover{
   }
 }
 
-/* ===== Mobile vertical flow tidy ===== */
+/* ===== Mobile refined (Sanctum→説明→リンク) ===== */
 @media (max-width:480px){
 
-  /* Sanctum */
+  /* 順序 */
+  #i5hev{ order:1; }   /* Sanctum */
+  #iww9z{ order:2; }   /* 説明文 */
+  #if5oz{ order:3; }   /* 入域申請 */
+  #ibnhf-2{ order:4; } /* 利用規約 */
+
+  /* テキスト統一 */
   #i5hev{
-    position: static !important;
-    display: block !important;
-    margin: 28px 20px 10px 20px !important;
-    font-size: 34px !important;
-    line-height: 1.15 !important;
-    color: #6d6d6d !important;
-    font-weight: 500 !important;
-    text-align: left !important;
+    position:static !important;
+    margin:28px 20px 10px 20px !important;
+    font-size:34px !important;
+    line-height:1.15 !important;
+    color:#6d6d6d !important;
+    font-weight:500 !important;
+    text-align:left !important;
   }
 
-  /* 説明文をSanctumのすぐ下に */
   #iww9z{
-    position: static !important;
-    display: block !important;
-    margin: 0 20px 15px 20px !important;
-    font-size: 14.5px !important;
-    line-height: 1.9 !important;
-    color: #666 !important;
-    text-align: left !important;
+    position:static !important;
+    margin:0 20px 15px 20px !important;
+    font-size:14.5px !important;
+    line-height:1.9 !important;
+    color:#666 !important;
+    text-align:left !important;
   }
 
-  /* リンクをその下に（横並びではなく縦配置） */
   #if5oz, #ibnhf-2{
-    position: static !important;
-    display: block !important;
-    margin: 4px 20px !important;
-    font-size: 15px !important;
-    color: #8fb6da !important;
-    text-decoration: underline !important;
-    text-align: left !important;
+    position:static !important;
+    display:block !important;
+    margin:4px 20px !important;
+    font-size:15px !important;
+    color:#8fb6da !important;
+    text-decoration:underline !important;
+    text-align:left !important;
   }
 
   #ibnhf{ display:none !important; } /* 重複非表示 */
-
-  /* 「初めに、聖域を」は少し下げる */
-  #iz29i{
-    position: absolute !important;
-    bottom: 14px !important;
-    right: 14px !important;
-    font-size: 15px !important;
-    color: rgba(255,255,255,.96) !important;
-    text-shadow: 0 2px 6px rgba(0,0,0,.35) !important;
-  }
 }
