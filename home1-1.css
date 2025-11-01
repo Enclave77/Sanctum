@@ -631,27 +631,29 @@ input[type="submit"].form-control:hover{
   }
 }
 
-/* ===== Mobile refined (Sanctum→説明→リンク) ===== */
+/* ===== Mobile: Sanctum → 説明文 → リンク2件 ===== */
 @media (max-width:480px){
 
-  /* 順序 */
-  #i5hev{ order:1; }   /* Sanctum */
-  #iww9z{ order:2; }   /* 説明文 */
-  #if5oz{ order:3; }   /* 入域申請 */
-  #ibnhf-2{ order:4; } /* 利用規約 */
+  /* 縦に整列させる */
+  body{
+    display:flex !important;
+    flex-direction:column !important;
+    align-items:flex-start !important;
+  }
 
-  /* テキスト統一 */
-  #i5hev{
+  /* 位置を整理 */
+  #i5hev{ /* Sanctum */
+    order:1 !important;
     position:static !important;
-    margin:28px 20px 10px 20px !important;
+    margin:30px 20px 10px 20px !important;
     font-size:34px !important;
-    line-height:1.15 !important;
-    color:#6d6d6d !important;
     font-weight:500 !important;
+    color:#6d6d6d !important;
     text-align:left !important;
   }
 
-  #iww9z{
+  #iww9z{ /* 説明文 */
+    order:2 !important;
     position:static !important;
     margin:0 20px 15px 20px !important;
     font-size:14.5px !important;
@@ -660,7 +662,8 @@ input[type="submit"].form-control:hover{
     text-align:left !important;
   }
 
-  #if5oz, #ibnhf-2{
+  #if5oz{ /* 入域申請 */
+    order:3 !important;
     position:static !important;
     display:block !important;
     margin:4px 20px !important;
@@ -670,5 +673,21 @@ input[type="submit"].form-control:hover{
     text-align:left !important;
   }
 
-  #ibnhf{ display:none !important; } /* 重複非表示 */
+  #ibnhf, #ibnhf-2{ /* 利用規約 */
+    order:4 !important;
+    position:static !important;
+    display:block !important;
+    margin:4px 20px 30px 20px !important;
+    font-size:15px !important;
+    color:#8fb6da !important;
+    text-decoration:underline !important;
+    text-align:left !important;
+  }
+
+  /* 背景テキストは触らない */
+  #iz29i{
+    position:absolute !important;
+    right:15px !important;
+    bottom:10px !important;
+  }
 }
