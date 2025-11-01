@@ -631,58 +631,50 @@ input[type="submit"].form-control:hover{
   }
 }
 
-/* ===== Mobile typography fine-tune (位置は不変) ===== */
+/* ===== Mobile fine layout alignments ===== */
 @media (max-width:480px){
 
-  /* ロゴ Enclave */
-  #io3aji{
-    font-size:22px !important;
-    letter-spacing:.02em !important;
-  }
-
-  /* ヒーロー画像は少しだけ浅く見せる */
-  #iwfdv6{
-    min-height:56vh !important;
-    background-position: center right 18% !important;
-  }
-
-  /* 右下の白テキスト（初めに、聖域を）— 位置はそのまま、読みやすさだけ改善 */
-  #iz29i{
-    font-size:14.5px !important;
-    line-height:1.35 !important;
-    letter-spacing:.06em !important;
-    color:rgba(255,255,255,.96) !important;
-    text-shadow:0 2px 6px rgba(0,0,0,.35) !important;
-  }
-
-  /* 見出し Sanctum — 左に寄って見えるよう、字面と余白のみ調整 */
+  /* Sanctum と本文を左揃えに */
   #i5hev{
-    font-size:34px !important;
-    line-height:1.15 !important;
-    margin:18px 0 6px 16px !important;  /* 位置はabsoluteを残しつつ視覚的に左へ */
-    font-weight:500 !important;
-    color:#6d6d6d !important;
+    position: static !important;
+    font-size: 34px !important;
+    font-weight: 500 !important;
+    color: #6d6d6d !important;
+    line-height: 1.15 !important;
+    margin: 22px 0 6px 20px !important; /* 左に寄せる */
+    text-align: left !important;
   }
 
-  /* 説明文ブロック */
+  /* 説明文（18歳を過ぎた〜） */
   #iww9z{
-    font-size:14px !important;
-    line-height:1.9 !important;
-    color:#666 !important;
-    margin:10px 16px 20px 16px !important;
+    position: static !important;
+    margin: 0 20px 20px 20px !important;
+    font-size: 14px !important;
+    line-height: 1.9 !important;
+    color: #666 !important;
+    text-align: left !important;
   }
-  #ifd24, #ibeyk{ margin:0 0 6px 0 !important; }
 
-  /* リンク3本 — 行間とタップ余白だけ */
+  /* 入域申請・利用規約も左揃えに */
   #if5oz, #ibnhf, #ibnhf-2{
-    display:inline-block !important;
-    font-size:15px !important;
-    line-height:1.7 !important;
-    color:#8fb6da !important;
-    text-decoration:underline !important;
-    margin:8px 16px 0 16px !important;
+    position: static !important;
+    display: inline-block !important;
+    font-size: 15px !important;
+    line-height: 1.7 !important;
+    color: #8fb6da !important;
+    text-decoration: underline !important;
+    margin: 4px 12px 0 20px !important;
+    text-align: left !important;
   }
 
-  /* 全体の縮尺暴走を抑える（iOS対策） */
-  body{ -webkit-text-size-adjust:100% !important; }
+  /* 初めに、聖域を — 少し下げる＋右寄り維持 */
+  #iz29i{
+    position: absolute !important;
+    bottom: 16px !important;
+    right: 12px !important;
+    font-size: 15px !important;
+    color: rgba(255,255,255,.96) !important;
+    text-shadow: 0 2px 6px rgba(0,0,0,.35) !important;
+    letter-spacing: .05em !important;
+  }
 }
