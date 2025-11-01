@@ -631,63 +631,29 @@ input[type="submit"].form-control:hover{
   }
 }
 
-/* ===== Mobile: Sanctum → 説明文 → リンク2件 ===== */
+/* ==== Mobile: Sanctum → 説明 → 入域申請 → 利用規約 ==== */
 @media (max-width:480px){
 
-  /* 縦に整列させる */
-  body{
-    display:flex !important;
-    flex-direction:column !important;
-    align-items:flex-start !important;
+  /* 親を縦フレックス化しつつ全子要素を横幅100%で伸ばす */
+  body{ display:flex !important; flex-direction:column !important; }
+  #im5x{ padding-bottom:24px !important; } /* 355pxを上書き */
+  #ilvbo5, #iwfdv6, #i5hev, #iww9z, #if5oz, #ibnhf-2{
+    align-self:stretch !important; width:100% !important;
   }
 
-  /* 位置を整理 */
-  #i5hev{ /* Sanctum */
-    order:1 !important;
-    position:static !important;
-    margin:30px 20px 10px 20px !important;
-    font-size:34px !important;
-    font-weight:500 !important;
-    color:#6d6d6d !important;
-    text-align:left !important;
-  }
+  /* 並び順の固定 */
+  #ilvbo5{ order:0 !important; }
+  #iwfdv6{ order:1 !important; min-height:54vh !important; background-position:center right 18% !important; }
+  #i5hev{ order:2 !important; position:static !important; margin:28px 20px 10px !important;
+          font-size:34px !important; line-height:1.15 !important; color:#6d6d6d !important; font-weight:500 !important; text-align:left !important; }
+  #iww9z{ order:3 !important; position:static !important; margin:0 20px 12px !important;
+          font-size:14.5px !important; line-height:1.9 !important; color:#666 !important; text-align:left !important; }
+  #if5oz{ order:4 !important; position:static !important; display:block !important;
+          margin:6px 20px 0 !important; font-size:15px !important; color:#8fb6da !important; text-decoration:underline !important; text-align:left !important; }
+  #ibnhf{ display:none !important; }         /* 重複を消す */
+  #ibnhf-2{ order:5 !important; position:static !important; display:block !important;
+            margin:6px 20px 24px !important; font-size:15px !important; color:#8fb6da !important; text-decoration:underline !important; text-align:left !important; }
 
-  #iww9z{ /* 説明文 */
-    order:2 !important;
-    position:static !important;
-    margin:0 20px 15px 20px !important;
-    font-size:14.5px !important;
-    line-height:1.9 !important;
-    color:#666 !important;
-    text-align:left !important;
-  }
-
-  #if5oz{ /* 入域申請 */
-    order:3 !important;
-    position:static !important;
-    display:block !important;
-    margin:4px 20px !important;
-    font-size:15px !important;
-    color:#8fb6da !important;
-    text-decoration:underline !important;
-    text-align:left !important;
-  }
-
-  #ibnhf, #ibnhf-2{ /* 利用規約 */
-    order:4 !important;
-    position:static !important;
-    display:block !important;
-    margin:4px 20px 30px 20px !important;
-    font-size:15px !important;
-    color:#8fb6da !important;
-    text-decoration:underline !important;
-    text-align:left !important;
-  }
-
-  /* 背景テキストは触らない */
-  #iz29i{
-    position:absolute !important;
-    right:15px !important;
-    bottom:10px !important;
-  }
+  /* 背景上の「初めに、聖域を」は位置そのまま */
+  #iz29i{ position:absolute !important; right:14px !important; bottom:12px !important; }
 }
