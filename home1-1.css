@@ -631,46 +631,52 @@ input[type="submit"].form-control:hover{
   }
 }
 
-/* ===== Mobile tidy (位置は最小変更) ===== */
+/* ===== Mobile vertical flow tidy ===== */
 @media (max-width:480px){
 
-  /* モバイルだけ縦フローを強制（順序を制御） */
-  body{ display:flex; flex-direction:column; }
-
-  /* 並び順：ロゴ→ヒーロー→Sanctum→説明→リンク */
-  #ilvbo5{ order:1; }
-  #iwfdv6{ order:2; min-height:54vh !important; background-position:center right 18% !important; }
-
-  /* 右下の白テキストは少し下へ */
-  #iz29i{
-    position:absolute !important;
-    bottom:14px !important; right:14px !important;
-    font-size:15px !important; line-height:1.35 !important;
-    color:rgba(255,255,255,.96) !important;
-    text-shadow:0 2px 6px rgba(0,0,0,.35) !important;
-    letter-spacing:.05em !important;
-  }
-
-  /* 見出しと本文を左に揃えて同じ左マージン */
+  /* Sanctum */
   #i5hev{
-    order:3; position:static !important;
-    margin:22px 0 8px 20px !important;
-    font-size:34px !important; line-height:1.15 !important;
-    color:#6d6d6d !important; font-weight:500 !important; text-align:left !important;
+    position: static !important;
+    display: block !important;
+    margin: 28px 20px 10px 20px !important;
+    font-size: 34px !important;
+    line-height: 1.15 !important;
+    color: #6d6d6d !important;
+    font-weight: 500 !important;
+    text-align: left !important;
   }
+
+  /* 説明文をSanctumのすぐ下に */
   #iww9z{
-    order:4; position:static !important;
-    margin:0 20px 12px 20px !important;
-    font-size:14.5px !important; line-height:1.9 !important; color:#666 !important; text-align:left !important;
-    letter-spacing:.02em !important;
+    position: static !important;
+    display: block !important;
+    margin: 0 20px 15px 20px !important;
+    font-size: 14.5px !important;
+    line-height: 1.9 !important;
+    color: #666 !important;
+    text-align: left !important;
   }
 
-  /* リンクを本文の下に。左寄せ。タップ余白を統一 */
-  #if5oz{ order:5; display:block !important; margin:10px 20px 0 20px !important; font-size:15px !important; }
-  #ibnhf{ display:none !important; } /* 重複は非表示 */
-  #ibnhf-2{ order:6; display:block !important; margin:8px 20px 0 20px !important; font-size:15px !important; }
-  .gjs-t-link{ color:#8fb6da !important; text-decoration:underline !important; text-underline-offset:2px; }
+  /* リンクをその下に（横並びではなく縦配置） */
+  #if5oz, #ibnhf-2{
+    position: static !important;
+    display: block !important;
+    margin: 4px 20px !important;
+    font-size: 15px !important;
+    color: #8fb6da !important;
+    text-decoration: underline !important;
+    text-align: left !important;
+  }
 
-  /* ロゴは微縮小だけ */
-  #io3aji{ font-size:22px !important; }
+  #ibnhf{ display:none !important; } /* 重複非表示 */
+
+  /* 「初めに、聖域を」は少し下げる */
+  #iz29i{
+    position: absolute !important;
+    bottom: 14px !important;
+    right: 14px !important;
+    font-size: 15px !important;
+    color: rgba(255,255,255,.96) !important;
+    text-shadow: 0 2px 6px rgba(0,0,0,.35) !important;
+  }
 }
