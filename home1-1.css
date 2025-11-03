@@ -683,21 +683,30 @@ input[type="submit"].form-control:hover{
   /* 18歳を〜／初めての方は〜 の調整 */
   #ifd24,
   #ibeyk{
-    font-size:12px;        /* 同じ大きさに統一 */
+    font-size:12px;
     line-height:1.6;
     color:#666666;
   }
   #ifd24{
-    white-space:nowrap;    /* 一行に固定 */
+    white-space:nowrap;
   }
   #ibeyk{
-    white-space:normal;    /* 改行OK */
+    white-space:normal;
     margin-top:4px;
   }
 
-  /* 「初めに、聖域を」位置調整 */
+  /* 「初めに、聖域を」を少し下へ */
   #iz29i{
-    top:405px;             /* 418px → やや上へ */
-    transform:translate(6px, 0px); /* 少し右へ寄せ */
+    top:412px;             /* 405→412に変更（少し下） */
+    transform:translate(6px, 2px);
+  }
+
+  /* 入域申請・利用規約を少し上に詰める */
+  #if5oz,
+  #ibnhf,
+  #ibnhf-2{
+    position:absolute;
+    top:auto;
+    transform:translateY(-6px); /* 少し上へ詰める */
   }
 }
