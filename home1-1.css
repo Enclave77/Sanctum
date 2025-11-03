@@ -678,3 +678,28 @@ input[type="submit"].form-control:hover{
     color:#9dbcd9 !important;
   }
 }
+
+/* --- mobile 専用調整 --- */
+@media (max-width: 480px){
+  #iww9z{
+    left:12px;
+    right:12px;
+    width:auto;
+  }
+  #ifd24{
+    white-space:nowrap;
+    font-size:11px;
+    line-height:1.6;
+    letter-spacing:.02em;
+    display:block;
+  }
+  #ibeyk{
+    white-space:normal;
+    display:block;
+    margin-top:4px;
+  }
+  #iz29i{
+    top:418px;
+    transform:translate(8px, 12px);
+  }
+}
