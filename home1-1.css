@@ -679,27 +679,25 @@ input[type="submit"].form-control:hover{
   }
 }
 
-/* --- mobile 専用調整 --- */
 @media (max-width: 480px){
-  #iww9z{
-    left:12px;
-    right:12px;
-    width:auto;
+  /* 18歳を〜／初めての方は〜 の調整 */
+  #ifd24,
+  #ibeyk{
+    font-size:12px;        /* 同じ大きさに統一 */
+    line-height:1.6;
+    color:#666666;
   }
   #ifd24{
-    white-space:nowrap;
-    font-size:11px;
-    line-height:1.6;
-    letter-spacing:.02em;
-    display:block;
+    white-space:nowrap;    /* 一行に固定 */
   }
   #ibeyk{
-    white-space:normal;
-    display:block;
+    white-space:normal;    /* 改行OK */
     margin-top:4px;
   }
+
+  /* 「初めに、聖域を」位置調整 */
   #iz29i{
-    top:418px;
-    transform:translate(8px, 12px);
+    top:405px;             /* 418px → やや上へ */
+    transform:translate(6px, 0px); /* 少し右へ寄せ */
   }
 }
