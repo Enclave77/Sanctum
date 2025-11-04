@@ -363,7 +363,7 @@ input[type="submit"].form-control:hover{
   top:804px;
   margin:0px 0px 0px 9px;
 }
-#ibnhf{
+#ibnhf-2{
   position:absolute;
   right:1098px;
   top:899px;
@@ -467,7 +467,7 @@ input[type="submit"].form-control:hover{
     background-attachment:scroll;
     background-origin:padding-box;
   }
-  #ibnhf{
+  #ibnhf-2{
     position:absolute;
     right:676px;
     font-size:15px;
@@ -565,7 +565,7 @@ input[type="submit"].form-control:hover{
 
 /* PCのみ：入域申請と利用規約の色を統一 */
 @media (min-width: 993px){
-  #if5oz, #ibnhf{
+  #if5oz, #ibnhf-2{
     color:#aac5e1;                  /* モバイルと同系統の淡青 */
     font-family: 'Verdana', sans-serif;
     text-decoration:underline;
@@ -578,11 +578,11 @@ input[type="submit"].form-control:hover{
     margin-top:14px;
     font-size:18px;
   }
-  #ibnhf{
+  #ibnhf-2{
     margin-top:10px;
     font-size:16px;
   }
-  #if5oz:hover, #ibnhf:hover{
+  #if5oz:hover, #ibnhf-2:hover{
     opacity:0.8;
   }
 }
