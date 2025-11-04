@@ -754,3 +754,10 @@ input[type="submit"].form-control:hover{
 #if5oz:hover, #ibnhf:hover {
   color: #a5b8cc;
 }
+@media (max-width:480px){
+  #iz29i{
+    top:auto; left:auto;
+    right:6vw;          /* 写真の余白と揃う */
+    bottom:12vw;        /* 下端から“2文字分”の余白 */
+  }
+}
