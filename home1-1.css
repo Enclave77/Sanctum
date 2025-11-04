@@ -710,3 +710,25 @@ input[type="submit"].form-control:hover{
     transform:translateY(-6px); /* 少し上へ詰める */
   }
 }
+
+/* Comic Sansを無効化。見た目は変えず品位だけ上げる */
+.gjs-t-link{ font-family: inherit !important; }
+
+/* --- mobile only: 既存レイアウトを崩さず微調整 --- */
+@media (max-width: 480px){
+  /* 「初めに、聖域を」：基準は従来どおり top を使う＝ずれ防止 */
+  #iz29i{
+    top:416px;          /* いまより“ほんの少し下” */
+    right:8px;          /* 既存の位置感を維持 */
+    transform:none;     /* 端末差のブレ要因を排除 */
+  }
+
+  /* 入域申請／利用規約：見た目は上に詰めるが、配置基準はそのまま */
+  #if5oz, #ibnhf{
+    padding:10px 0 6px; /* タップ領域↑（見た目は変えない） */
+    margin-top:-6px;     /* ほんの少し上に詰める */
+  }
+
+  /* 説明2行は現状維持（同サイズ・1行/改行設定）なら変更不要 */
+  /* #ifd24{ white-space:nowrap; } #ibeyk{ white-space:normal; } */
+}
