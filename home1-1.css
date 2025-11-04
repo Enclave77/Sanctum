@@ -754,3 +754,17 @@ input[type="submit"].form-control:hover{
 #if5oz:hover, #ibnhf:hover {
   color: #a5b8cc;
 }
+@media (max-width:480px){
+  /* 「初めに、聖域を」：安全なpx指定のみ */
+  #iz29i{
+    position:absolute;
+    top:404px;      /* 400〜408の範囲で±2px微調整可 */
+    right:12px;     /* 12〜16の範囲で調整可 */
+    transform:none;
+    text-shadow:0 2px 6px rgba(0,0,0,.35);
+    z-index:2;      /* 念のため重なり順を固定 */
+  }
+
+  /* ヒーロー下端の詰まり防止（必要なら） */
+  #iwfdv6{ padding-bottom:18px; }
+}
