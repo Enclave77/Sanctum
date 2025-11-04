@@ -543,13 +543,9 @@ input[type="submit"].form-control:hover{
     top:0px;
     bottom:0px;
     display:block;
-  }
-  /* Comic Sans を撤回（任意。見た目を崩さず品位だけ上げる） */
-.gjs-t-link{ font-family: inherit !important; }
+ .gjs-t-link{ font-family: inherit !important; }
 
-/* ===== モバイル専用の正しい末尾ブロックに置換 ===== */
-@media (max-width: 480px){
-  /* ヒーローのブランド名は現状維持 */
+
   #io3aji{
     font-size:20px;
     padding:6px 10px;
@@ -629,8 +625,7 @@ input[type="submit"].form-control:hover{
     font-weight:100;
     font-family:'Noto Sans JP';
     font-size:11px;
-    top:530px;
-  }
+    top:530px; }
   #ibnhf{
     padding:10px;
     position:absolute;
@@ -638,8 +633,8 @@ input[type="submit"].form-control:hover{
     color:#7eb5cf;
     font-weight:100;
     font-size:9px;
-    top:554px;
-  }
+    top:554px; }
+  
   #im5x{
     padding-top:0.016px;
     padding-right:0px;
@@ -650,18 +645,18 @@ input[type="submit"].form-control:hover{
     background-size:100% 100%;
     background-repeat:repeat;
     background-attachment:scroll;
-    background-origin:padding-box;
-  }
+    background-origin:padding-box; }
+  
   #ifd24{
     text-align:left;
-    margin:0px 0px 0px 0px;
-  }
+    margin:0px 0px 0px 0px; }
+  
   .gjs-t-link{
     font-family:Arial, Helvetica, sans-serif;
     font-size:9px;
     font-weight:100;
-    margin:0px 0px 0px 0px;
-  }
+    margin:0px 0px 0px 0px; }
+  
   #ibnhf-2{
     padding:10px;
     position:absolute;
@@ -669,21 +664,13 @@ input[type="submit"].form-control:hover{
     color:#7eb5cf;
     font-weight:100;
     font-size:9px;
-    top:554px;
-  }
-}
+    top:554px; }
 
-/* ==== Mobile: Sanctum → 説明 → 入域申請 → 利用規約 ==== */
-@media (max-width:480px){
-
-  /* 親を縦フレックス化しつつ全子要素を横幅100%で伸ばす */
   body{ display:flex !important; flex-direction:column !important; }
-  #im5x{ padding-bottom:24px !important; } /* 355pxを上書き */
+  #im5x{ padding-bottom:24px !important; } 
   #ilvbo5, #iwfdv6, #i5hev, #iww9z, #if5oz, #ibnhf-2{
-    align-self:stretch !important; width:100% !important;
-  }
+    align-self:stretch !important; width:100% !important; }
 
-  /* 並び順の固定 */
   #ilvbo5{ order:0 !important; }
   #iwfdv6{ order:1 !important; min-height:54vh !important; background-position:center right 18% !important; }
   #i5hev{ order:2 !important; position:static !important; margin:28px 20px 10px !important;
@@ -692,177 +679,124 @@ input[type="submit"].form-control:hover{
           font-size:14.5px !important; line-height:1.9 !important; color:#666 !important; text-align:left !important; }
   #if5oz{ order:4 !important; position:static !important; display:block !important;
           margin:6px 20px 0 !important; font-size:15px !important; color:#8fb6da !important; text-decoration:underline !important; text-align:left !important; }
-  #ibnhf{ display:none !important; }         /* 重複を消す */
+  #ibnhf{ display:none !important; }        
   #ibnhf-2{ order:5 !important; position:static !important; display:block !important;
             margin:6px 20px 24px !important; font-size:15px !important; color:#8fb6da !important; text-decoration:underline !important; text-align:left !important; }
 
-  /* 背景上の「初めに、聖域を」は位置そのまま */
   #iz29i{ position:absolute !important; right:14px !important; bottom:12px !important; }
+
 }
 
-/* --- さっきの大きなモバイル用レイアウト調整 --- */
-@media (max-width:480px){
-  ...（前の長いやつ）...
-}
-
-/* --- 追加の微調整 --- */
-@media (max-width:480px){
   #i5hev{ margin-bottom:4px !important; }
   #iww9z{ margin-top:0 !important; }
   #if5oz{
     font-size:16.5px !important;
     font-weight:500 !important;
-    color:#7eaad4 !important;
-  }
+    color:#7eaad4 !important; }
+
   #ibnhf-2{
     font-size:15px !important;
     font-weight:400 !important;
-    color:#9dbcd9 !important;
-  }
-}
+    color:#9dbcd9 !important; }
 
-@media (max-width: 480px){
-  /* 18歳を〜／初めての方は〜 の調整 */
   #ifd24,
   #ibeyk{
     font-size:12px;
     line-height:1.6;
-    color:#666666;
-  }
+    color:#666666; }
+
   #ifd24{
-    white-space:nowrap;
-  }
+    white-space:nowrap; }
+
   #ibeyk{
     white-space:normal;
-    margin-top:4px;
-  }
+    margin-top:4px; }
 
-  /* 「初めに、聖域を」を少し下へ */
+
   #iz29i{
-    top:412px;             /* 405→412に変更（少し下） */
-    transform:translate(6px, 2px);
-  }
+    top:412px;  
+    transform:translate(6px, 2px); }
 
-  /* 入域申請・利用規約を少し上に詰める */
   #if5oz,
   #ibnhf,
   #ibnhf-2{
     position:absolute;
     top:auto;
-    transform:translateY(-6px); /* 少し上へ詰める */
-  }
-}
+    transform:translateY(-6px); }
 
-@media (max-width: 480px){
-  /* 「初めに、聖域を」少し上へ、右寄せは維持 */
   #iz29i{
-    top:406px;           /* いまより約10px上 */
+    top:406px;    
     right:10px;
     transform:none;
-    text-shadow:0 2px 6px rgba(0,0,0,.35);
-  }
+    text-shadow:0 2px 6px rgba(0,0,0,.35); }
 
-  /* ヒーロー下に余白を少し追加して境界の圧迫を回避 */
   #iwfdv6{
-    padding-bottom:22px; /* セクション下が詰まらないように */
-  }
+    padding-bottom:22px; }
 
-  /* 入域申請／利用規約はもう少しだけ上に */
   #if5oz, #ibnhf{
-    margin-top:-10px;    /* -6px → -10px */
-  }
-}
-/* Google Fonts 読み込み（<head> に追加） */
+    margin-top:-10px;    /* -6px → -10px */ }
+
 @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;600&display=swap');
 
-/* 「初めに、聖域を」専用スタイル */
 #iz29i {
   font-family: 'Noto Serif JP', serif !important;
   font-weight: 400;
   font-size: 15px;
   letter-spacing: 0.08em;
   color: rgba(255, 255, 255, 0.92);
-  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
-}
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.3); }
 
-/* 入域申請・利用規約も同系統で静かに */
 #if5oz, #ibnhf {
   font-family: 'Noto Serif JP', serif !important;
   font-weight: 400;
   font-size: 13px;
   letter-spacing: 0.05em;
-  color: #7d8ca0;
-}
+  color: #7d8ca0; }
+
 #if5oz:hover, #ibnhf:hover {
-  color: #a5b8cc;
-}
-@media (max-width:480px){
-  /* 「初めに、聖域を」：安全なpx指定のみ */
+  color: #a5b8cc; }
+
   #iz29i{
     position:absolute;
-    top:404px;      /* 400〜408の範囲で±2px微調整可 */
-    right:12px;     /* 12〜16の範囲で調整可 */
+    top:404px;   
+    right:12px;    
     transform:none;
     text-shadow:0 2px 6px rgba(0,0,0,.35);
-    z-index:2;      /* 念のため重なり順を固定 */
-  }
+    z-index:2; }
 
-  /* ヒーロー下端の詰まり防止（必要なら） */
   #iwfdv6{ padding-bottom:18px; }
-}
 
 a {
-  color: #6d8ba7;
-}
+  color: #6d8ba7; }
+
 a:hover {
-  color: #8fa9c2;
-}
-@media (max-width:480px){
-  /* 「初めに、聖域を」：位置微調整のみ */
+  color: #8fa9c2; }
+
   #iz29i{
-    top:406px;     /* 既存より+2px上 */
-    right:14px;    /* わずかに左へ */
-  }
+    top:406px;     
+    right:14px; }
 
-  /* 「Sanctum」と本文の距離を調整 */
   #i5hev{
-    margin-bottom:6px;  /* 空き過ぎ防止。フォントサイズはそのまま */
-  }
+    margin-bottom:6px; }
 
-  /* 「入域申請」「利用規約」リンクの余白圧縮 */
   #if5oz, #ibnhf{
-    margin-top:4px;
-  }
-}
-/* 1) PC/タブレットは元の値に固定（上書きガード） */
-@media (min-width: 481px) and (max-width: 992px){
-  /* 既存のタブレット指定を再掲して固定 */
+    margin-top:4px; }
+
   #iz29i{ top:497px; right:8px; font-size:31px; transform:none; }
   #if5oz, #ibnhf{ margin-top:0; transform:none; }
-}
-@media (min-width: 993px){
-  /* 既存のPC指定を再掲して固定 */
+
   #iz29i{ top:601px; right:33px; font-size:39px; transform:none; }
   #if5oz, #ibnhf{ margin-top:0; transform:none; }
-}
 
-/* 2) モバイルだけで位置微調整と書体変更を適用 */
-@media (max-width: 480px){
-  /* 位置だけ変更（あなたが今の見た目にしている数値） */
   #iz29i{ top:404px; right:12px; text-shadow:0 2px 6px rgba(0,0,0,.35); }
 
-  /* 入域申請／利用規約を少し上へ。PCには効かない */
   #if5oz, #ibnhf{ margin-top:-10px; }
 
-  /* フォント変更をモバイルに限定（PCは影響なし） */
   #iz29i,
   #if5oz, #ibnhf{
     font-family: 'Noto Serif JP', serif !important;
-    letter-spacing: .05em;
-  }
+    letter-spacing: .05em; }
+
+.gjs-t-link{ font-family: inherit !important; }
 }
 
-/* 3) もし .gjs-t-link を全体で上書きしていたら無効化してPC影響を断つ */
-@media (max-width: 480px){
-  .gjs-t-link{ font-family: inherit !important; } /* モバイルだけで調整 */
-}
