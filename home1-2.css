@@ -470,14 +470,6 @@ input[type="submit"].form-control:hover{
   #ibnhf-2{
     position:absolute;
     right:676px;
-    font-size:15px;
-    top:748px;
-    color:#aac5e1;
-  }
-  #ibnhf-2{
-    position:absolute;
-    right:676px;
-    font-size:15px;
     top:748px;
     color:#aac5e1;
   }
@@ -485,7 +477,7 @@ input[type="submit"].form-control:hover{
     margin:0px 1px 0px 0px;
   }
   #if5oz, #ibnhf-2{
-    color:#aac5e1;                  /* モバイルと同系統の淡青 */
+    color:#aac5e1; 
     font-family: 'Verdana', sans-serif;
     text-decoration:underline;
     text-underline-offset:4px;
