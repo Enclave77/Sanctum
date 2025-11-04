@@ -768,3 +768,27 @@ input[type="submit"].form-control:hover{
   /* ヒーロー下端の詰まり防止（必要なら） */
   #iwfdv6{ padding-bottom:18px; }
 }
+
+a {
+  color: #6d8ba7;
+}
+a:hover {
+  color: #8fa9c2;
+}
+@media (max-width:480px){
+  /* 「初めに、聖域を」：位置微調整のみ */
+  #iz29i{
+    top:406px;     /* 既存より+2px上 */
+    right:14px;    /* わずかに左へ */
+  }
+
+  /* 「Sanctum」と本文の距離を調整 */
+  #i5hev{
+    margin-bottom:6px;  /* 空き過ぎ防止。フォントサイズはそのまま */
+  }
+
+  /* 「入域申請」「利用規約」リンクの余白圧縮 */
+  #if5oz, #ibnhf{
+    margin-top:4px;
+  }
+}
