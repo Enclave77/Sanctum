@@ -1,0 +1,826 @@
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+}
+:root{
+  --gjs-t-color-primary:#f7941d;
+  --gjs-t-color-secondary:#000000;
+  --gjs-t-color-accent:#24c162;
+  --gjs-t-color-success:#28a745;
+  --gjs-t-color-warning:#ffc107;
+  --gjs-t-color-error:#dc3545;
+}
+.gjs-t-body{
+  background-color:inherit;
+  color:#999999;
+  font-size:1rem;
+  line-height:1.75rem;
+  font-family:Lato;
+}
+.gjs-t-h1{
+  color:var(--gjs-t-color-secondary);
+  font-size:1.5rem;
+  line-height:2.5rem;
+  font-family:Montserrat;
+}
+.gjs-t-h2{
+  color:#601843;
+  font-size:1.2rem;
+  line-height:1.75rem;
+}
+.gjs-t-button{
+  background-color:var(--gjs-t-color-primary);
+  color:white;
+  border-radius:0.3rem;
+}
+.gjs-t-link{
+  color:var(--gjs-t-color-primary);
+  text-decoration:underline;
+}
+.gjs-t-border{
+  border-radius:0.3rem;
+  border-color:#e0e0e0;
+}
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+html{
+  font-size:10px;
+  scroll-behavior:smooth;
+}
+body{
+  font-family:'Lato', Arial, sans-serif;
+  font-size:14px;
+  line-height:1.6;
+  color:#333333;
+  background-color:#ffffff;
+}
+h1{
+  font-family:'Montserrat', sans-serif;
+  font-size:48px;
+  font-weight:700;
+  margin-bottom:20px;
+  line-height:1.2;
+}
+h2{
+  font-family:'Montserrat', sans-serif;
+  font-size:36px;
+  font-weight:700;
+  margin-bottom:20px;
+  color:#333333;
+}
+h3{
+  font-family:'Montserrat', sans-serif;
+  font-size:28px;
+  font-weight:600;
+}
+h4{
+  font-family:'Montserrat', sans-serif;
+  font-size:20px;
+  font-weight:600;
+  margin-bottom:10px;
+}
+h5{
+  font-family:'Montserrat', sans-serif;
+  font-size:16px;
+  font-weight:600;
+  margin-bottom:5px;
+}
+p{
+  margin-bottom:15px;
+  line-height:1.8;
+  color:#666666;
+}
+a{
+  color:#337ab7;
+  text-decoration:none;
+  transition:all 0.3s ease;
+}
+a:hover{
+  color:#23527c;
+}
+.logo h3{
+  margin:0;
+  font-size:28px;
+}
+.logo span{
+  font-size:12px;
+  color:#999999;
+  text-transform:uppercase;
+  letter-spacing:1px;
+}
+.info-call i{
+  margin-right:8px;
+  color:#667eea;
+}
+.box-content h4{
+  margin-bottom:10px;
+  color:#333333;
+}
+.box-content p{
+  margin:0;
+  color:#666666;
+  line-height:1.8;
+}
+.form-group label{
+  display:block;
+  margin-bottom:8px;
+  font-weight:600;
+  color:#333333;
+  font-size:13px;
+  text-transform:uppercase;
+  letter-spacing:0.5px;
+}
+input[type="submit"].form-control{
+  background:linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color:#ffffff;
+  font-weight:600;
+  text-transform:uppercase;
+  cursor:pointer;
+  border:none;
+}
+input[type="submit"].form-control:hover{
+  background:linear-gradient(135deg, #5568d3 0%, #63348b 100%);
+  transform:translateY(-2px);
+  box-shadow:0 5px 20px rgba(102, 126, 234, 0.4);
+}
+.video-placeholder i{
+  font-size:80px;
+  margin-bottom:20px;
+  opacity:0.9;
+}
+.video-placeholder p{
+  font-size:18px;
+  color:#ffffff;
+  margin:0;
+}
+#header .container{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+#banner .container{
+  position:relative;
+  z-index:2;
+}
+.banner-content .description{
+  font-size:18px;
+  margin:20px 0 30px;
+  color:rgba(255, 255, 255, 0.9);
+}
+.services-info h2{
+  margin-bottom:40px;
+}
+.form-header h4{
+  margin:0;
+  color:#ffffff;
+  font-size:20px;
+}
+.form-card form{
+  padding:30px;
+}
+.section-header h2{
+  margin-bottom:15px;
+}
+.section-header p{
+  font-size:16px;
+  color:#666666;
+}
+.property-card.featured .featured-badge{
+  position:absolute;
+  top:15px;
+  right:15px;
+  background:linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color:#ffffff;
+  padding:8px 15px;
+  border-radius:20px;
+  font-size:12px;
+  font-weight:600;
+  text-transform:uppercase;
+  z-index:10;
+}
+.property-info h4{
+  margin-bottom:10px;
+  font-size:18px;
+  color:#333333;
+}
+.testimonial-content p{
+  font-size:15px;
+  line-height:1.8;
+  color:#666666;
+  font-style:italic;
+  margin:0;
+}
+.author-info h5{
+  margin:0 0 5px 0;
+  color:#333333;
+}
+.author-info span{
+  font-size:13px;
+  color:#999999;
+}
+#cta h1{
+  color:#ffffff;
+  margin-bottom:20px;
+}
+#cta p{
+  color:rgba(255, 255, 255, 0.9);
+  font-size:18px;
+  margin-bottom:30px;
+}
+.gjs-container{
+  width:90%;
+  margin:0 auto;
+  max-width:1200px;
+}
+.gjs-section{
+  display:flex;
+  padding:50px 0;
+  border-top-left-radius:0px;
+}
+#ilvbo5{
+  padding-top:20px;
+  padding-right:0px;
+  padding-bottom:20px;
+  padding-left:0px;
+  background-color:rgba(0, 0, 0, 0);
+}
+.gjs-plg-flex-column{
+  flex-grow:1;
+}
+#ik30kw{
+  flex-basis:50%;
+  align-self:center;
+}
+.gjs-plg-flex-row{
+  display:flex;
+  align-items:stretch;
+  flex-wrap:nowrap;
+}
+#i2ca5s{
+  width:100%;
+}
+.gjs-link-box{
+  color:inherit;
+  display:inline-block;
+  vertical-align:top;
+  padding:10px;
+  max-width:100%;
+  text-decoration:none;
+}
+#io3aji{
+  font-size:24px;
+  color:rgba(150, 183, 218, 0.81);
+  margin-bottom:0px;
+  font-family:Montserrat;
+  padding:8px 12px;
+  border-radius:5px;
+  display:inline-block;
+  line-height:1.2;
+  transition:background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+}
+#iwfdv6{
+  background-image:url("https://cdn.grapesjs.com/workspaces/cmhekx3u718wjwix4mukwncl0/assets/b7cb1e85-39fb-4100-be38-d826904abf6a__flower-vase-60600051920.jpg") !important;
+  background-position:center;
+  background-size:cover;
+  background-repeat:no-repeat;
+  background-attachment:scroll;
+  background-origin:padding-box;
+  min-height:600px;
+}
+#izpm9c-2-2-2{
+  align-self:center;
+  display:none;
+  flex-direction:column;
+}
+#im5x{
+  font-family:Lato;
+  font-size:16px;
+  padding-top:0.016px;
+  padding-right:0px;
+  padding-bottom:355px;
+  padding-left:0px;
+  background-image:linear-gradient(rgba(245, 245, 245, 0.5) 1%, rgba(245, 245, 245, 0.5) 100%);
+  background-position:0px 0px;
+  background-size:100% 100%;
+  background-repeat:repeat;
+  background-attachment:scroll;
+  background-origin:padding-box;
+}
+#io3aji:hover{
+  background-color:#d8ecff;
+  box-shadow:0 5px 20px rgba(102, 126, 234, 0.15);
+}
+#iwfdv6 .gjs-container{
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  padding-top:80px;
+  padding-bottom:80px;
+}
+#iwfdv6 #i4mxj{
+  text-align:center;
+  color:#ffffff !important;
+  font-family:Montserrat, sans-serif;
+  text-shadow:0 2px 8px rgba(0, 0, 0, 0.35);
+}
+#i6bps{
+  position:absolute;
+  top:25px;
+  left:0px;
+  font-size:53px;
+  font-weight:300;
+}
+#iz29i{
+  padding:10px;
+  position:absolute;
+  right:33px;
+  font-size:39px;
+  color:rgba(255, 255, 255, 1);
+  top:601px;
+  font-weight:100;
+  font-family:Verdana, Geneva, sans-serif;
+}
+#i5hev{
+  padding:10px;
+  color:rgba(109, 109, 109, 1);
+  font-size:59px;
+  position:absolute;
+  right:935px;
+  font-weight:500;
+  font-family:Georgia, serif;
+  top:703px;
+}
+#iww9z{
+  position:absolute;
+  color:rgba(0, 0, 0, 1);
+  font-size:14px;
+  right:795px;
+  top:804px;
+  margin:0px 0px 0px 9px;
+}
+#ibnhf{
+  position:absolute;
+  right:1098px;
+  top:899px;
+  font-size:19px;
+  color:#adc7e2;
+}
+#if5oz{
+  position:absolute;
+  right:1082px;
+  top:857px;
+  font-size:23px;
+  color:#b0c9e4;
+}
+.gjs-t-link{
+  font-family:Comic Sans MS, cursive, sans-serif;
+  font-weight:300;
+  margin:0px 2px 0px 0px;
+}
+#ifd24{
+  margin:0px 2px 0px 0px;
+}
+#ibnhf-2{
+  position:absolute;
+  right:1098px;
+  top:899px;
+  font-size:19px;
+  color:#adc7e2;
+}
+@keyframes bounce{
+  0%, 20%, 50%, 80%, 100%{
+    transform:translateY(0);
+  }
+  40%{
+    transform:translateY(-10px);
+  }
+  60%{
+    transform:translateY(-5px);
+  }
+}
+@media (max-width: 992px){
+  h1{
+    font-size:36px;
+  }
+  h2{
+    font-size:28px;
+  }
+  #header .container{
+    flex-direction:column;
+    gap:15px;
+  }
+  #io3aji{
+    padding:8px 10px;
+  }
+  #iwfdv6{
+    min-height:480px;
+  }
+  #iwfdv6 #i4mxj{
+    text-shadow:0 2px 6px rgba(0, 0, 0, 0.35);
+  }
+  #i6bps{
+    display:block;
+  }
+  #iz29i{
+    position:absolute;
+    top:497px;
+    right:8px;
+    font-size:31px;
+    font-weight:100;
+  }
+  #i5hev{
+    position:absolute;
+    right:555px;
+    top:587px;
+    font-size:44px;
+    font-weight:400;
+    color:rgba(102, 102, 102, 1);
+  }
+  #iww9z{
+    color:rgba(100, 100, 100, 1);
+    font-size:10px;
+    position:absolute;
+    right:466px;
+    top:668px;
+  }
+  #if5oz{
+    position:absolute;
+    right:668px;
+    top:711px;
+    font-size:17px;
+    color:#aac5e1;
+  }
+  #im5x{
+    padding-top:0.016px;
+    padding-right:0px;
+    padding-bottom:256px;
+    padding-left:0px;
+    background-image:linear-gradient(rgba(249, 249, 249, 0.5) 1%, rgba(249, 249, 249, 0.5) 100%);
+    background-position:0px 0px;
+    background-size:100% 100%;
+    background-repeat:repeat;
+    background-attachment:scroll;
+    background-origin:padding-box;
+  }
+  #ibnhf{
+    position:absolute;
+    right:676px;
+    font-size:15px;
+    top:748px;
+    color:#aac5e1;
+  }
+  #ibnhf-2{
+    position:absolute;
+    right:676px;
+    font-size:15px;
+    top:748px;
+    color:#aac5e1;
+  }
+  .gjs-t-link{
+    margin:0px 1px 0px 0px;
+  }
+}
+@media (max-width: 768px){
+  h1{
+    font-size:28px;
+  }
+  h2{
+    font-size:24px;
+  }
+}
+@media (max-width: 480px){
+  #izpm9c-2-2-2{
+    padding-top:10px;
+    padding-right:10px;
+    padding-bottom:10px;
+    padding-left:10px;
+  }
+  #io3aji{
+    font-size:20px;
+    padding:6px 10px;
+    color:rgba(126, 179, 236, 0.81);
+    position:absolute;
+    left:0px;
+  }
+  #iwfdv6{
+    min-height:380px;
+  }
+  #iwfdv6 #i4mxj{
+    text-shadow:0 1px 5px rgba(0, 0, 0, 0.35);
+  }
+  .gjs-section{
+    flex-direction:row;
+    padding-top:20px;
+    padding-right:0px;
+    padding-bottom:20px;
+    padding-left:0px;
+    margin-top:0px;
+    margin-right:0px;
+    margin-bottom:0px;
+    margin-left:0px;
+  }
+  #i6bps{
+    font-size:27px;
+    border-top-left-radius:30px;
+    border-left-width:59px;
+    font-weight:300;
+    text-align:left;
+    text-shadow:unset;
+    padding-top:0px;
+    padding-right:0px;
+    padding-bottom:0px;
+    padding-left:0px;
+    margin-top:0px;
+    margin-right:0px;
+    margin-bottom:0px;
+    margin-left:0px;
+    position:absolute;
+    top:0px;
+    bottom:0px;
+    display:block;
+  }
+  #iz29i{
+    top:399px;
+    position:fixed;
+    font-size:16px;
+    right:1px;
+    font-family:Verdana, Geneva, sans-serif;
+    font-weight:100;
+  }
+  #i5hev{
+    position:absolute;
+    right:181px;
+    top:455px;
+    font-size:28px;
+    color:#707070;
+  }
+  #iww9z{
+    padding:10px;
+    color:rgba(95, 95, 95, 1);
+    font-size:8px;
+    position:absolute;
+    right:74px;
+    top:500px;
+    margin-top:0px;
+    margin-right:0px;
+    margin-bottom:0px;
+    margin-left:0px;
+    padding-top:10px;
+    padding-right:10px;
+    padding-bottom:0px;
+    padding-left:10px;
+  }
+  #if5oz{
+    padding:10px;
+    color:rgba(137, 184, 208, 1);
+    position:absolute;
+    right:246px;
+    box-shadow:unset;
+    text-shadow:unset;
+    filter:unset;
+    backdrop-filter:unset;
+    font-weight:100;
+    font-family:'Noto Sans JP';
+    font-size:11px;
+    top:530px;
+  }
+  #ibnhf{
+    padding:10px;
+    position:absolute;
+    right:254px;
+    color:#7eb5cf;
+    font-weight:100;
+    font-size:9px;
+    top:554px;
+  }
+  #im5x{
+    padding-top:0.016px;
+    padding-right:0px;
+    padding-bottom:0px;
+    padding-left:0px;
+    background-image:linear-gradient(rgba(251, 251, 251, 1) 1%, rgba(251, 251, 251, 1) 100%);
+    background-position:0px 0px;
+    background-size:100% 100%;
+    background-repeat:repeat;
+    background-attachment:scroll;
+    background-origin:padding-box;
+  }
+  #ifd24{
+    text-align:left;
+    margin:0px 0px 0px 0px;
+  }
+  .gjs-t-link{
+    font-family:Arial, Helvetica, sans-serif;
+    font-size:9px;
+    font-weight:100;
+    margin:0px 0px 0px 0px;
+  }
+  #ibnhf-2{
+    padding:10px;
+    position:absolute;
+    right:254px;
+    color:#7eb5cf;
+    font-weight:100;
+    font-size:9px;
+    top:554px;
+  }
+}
+
+/* ==== Mobile: Sanctum → 説明 → 入域申請 → 利用規約 ==== */
+@media (max-width:480px){
+
+  /* 親を縦フレックス化しつつ全子要素を横幅100%で伸ばす */
+  body{ display:flex !important; flex-direction:column !important; }
+  #im5x{ padding-bottom:24px !important; } /* 355pxを上書き */
+  #ilvbo5, #iwfdv6, #i5hev, #iww9z, #if5oz, #ibnhf-2{
+    align-self:stretch !important; width:100% !important;
+  }
+
+  /* 並び順の固定 */
+  #ilvbo5{ order:0 !important; }
+  #iwfdv6{ order:1 !important; min-height:54vh !important; background-position:center right 18% !important; }
+  #i5hev{ order:2 !important; position:static !important; margin:28px 20px 10px !important;
+          font-size:34px !important; line-height:1.15 !important; color:#6d6d6d !important; font-weight:500 !important; text-align:left !important; }
+  #iww9z{ order:3 !important; position:static !important; margin:0 20px 12px !important;
+          font-size:14.5px !important; line-height:1.9 !important; color:#666 !important; text-align:left !important; }
+  #if5oz{ order:4 !important; position:static !important; display:block !important;
+          margin:6px 20px 0 !important; font-size:15px !important; color:#8fb6da !important; text-decoration:underline !important; text-align:left !important; }
+  #ibnhf{ display:none !important; }         /* 重複を消す */
+  #ibnhf-2{ order:5 !important; position:static !important; display:block !important;
+            margin:6px 20px 24px !important; font-size:15px !important; color:#8fb6da !important; text-decoration:underline !important; text-align:left !important; }
+
+  /* 背景上の「初めに、聖域を」は位置そのまま */
+  #iz29i{ position:absolute !important; right:14px !important; bottom:12px !important; }
+}
+
+/* --- さっきの大きなモバイル用レイアウト調整 --- */
+@media (max-width:480px){
+  ...（前の長いやつ）...
+}
+
+/* --- 追加の微調整 --- */
+@media (max-width:480px){
+  #i5hev{ margin-bottom:4px !important; }
+  #iww9z{ margin-top:0 !important; }
+  #if5oz{
+    font-size:16.5px !important;
+    font-weight:500 !important;
+    color:#7eaad4 !important;
+  }
+  #ibnhf-2{
+    font-size:15px !important;
+    font-weight:400 !important;
+    color:#9dbcd9 !important;
+  }
+}
+
+@media (max-width: 480px){
+  /* 18歳を〜／初めての方は〜 の調整 */
+  #ifd24,
+  #ibeyk{
+    font-size:12px;
+    line-height:1.6;
+    color:#666666;
+  }
+  #ifd24{
+    white-space:nowrap;
+  }
+  #ibeyk{
+    white-space:normal;
+    margin-top:4px;
+  }
+
+  /* 「初めに、聖域を」を少し下へ */
+  #iz29i{
+    top:412px;             /* 405→412に変更（少し下） */
+    transform:translate(6px, 2px);
+  }
+
+  /* 入域申請・利用規約を少し上に詰める */
+  #if5oz,
+  #ibnhf,
+  #ibnhf-2{
+    position:absolute;
+    top:auto;
+    transform:translateY(-6px); /* 少し上へ詰める */
+  }
+}
+
+@media (max-width: 480px){
+  /* 「初めに、聖域を」少し上へ、右寄せは維持 */
+  #iz29i{
+    top:406px;           /* いまより約10px上 */
+    right:10px;
+    transform:none;
+    text-shadow:0 2px 6px rgba(0,0,0,.35);
+  }
+
+  /* ヒーロー下に余白を少し追加して境界の圧迫を回避 */
+  #iwfdv6{
+    padding-bottom:22px; /* セクション下が詰まらないように */
+  }
+
+  /* 入域申請／利用規約はもう少しだけ上に */
+  #if5oz, #ibnhf{
+    margin-top:-10px;    /* -6px → -10px */
+  }
+}
+/* Google Fonts 読み込み（<head> に追加） */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;600&display=swap');
+
+/* 「初めに、聖域を」専用スタイル */
+#iz29i {
+  font-family: 'Noto Serif JP', serif !important;
+  font-weight: 400;
+  font-size: 15px;
+  letter-spacing: 0.08em;
+  color: rgba(255, 255, 255, 0.92);
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+}
+
+/* 入域申請・利用規約も同系統で静かに */
+#if5oz, #ibnhf {
+  font-family: 'Noto Serif JP', serif !important;
+  font-weight: 400;
+  font-size: 13px;
+  letter-spacing: 0.05em;
+  color: #7d8ca0;
+}
+#if5oz:hover, #ibnhf:hover {
+  color: #a5b8cc;
+}
+@media (max-width:480px){
+  /* 「初めに、聖域を」：安全なpx指定のみ */
+  #iz29i{
+    position:absolute;
+    top:404px;      /* 400〜408の範囲で±2px微調整可 */
+    right:12px;     /* 12〜16の範囲で調整可 */
+    transform:none;
+    text-shadow:0 2px 6px rgba(0,0,0,.35);
+    z-index:2;      /* 念のため重なり順を固定 */
+  }
+
+  /* ヒーロー下端の詰まり防止（必要なら） */
+  #iwfdv6{ padding-bottom:18px; }
+}
+
+a {
+  color: #6d8ba7;
+}
+a:hover {
+  color: #8fa9c2;
+}
+@media (max-width:480px){
+  /* 「初めに、聖域を」：位置微調整のみ */
+  #iz29i{
+    top:406px;     /* 既存より+2px上 */
+    right:14px;    /* わずかに左へ */
+  }
+
+  /* 「Sanctum」と本文の距離を調整 */
+  #i5hev{
+    margin-bottom:6px;  /* 空き過ぎ防止。フォントサイズはそのまま */
+  }
+
+  /* 「入域申請」「利用規約」リンクの余白圧縮 */
+  #if5oz, #ibnhf{
+    margin-top:4px;
+  }
+}
+/* 1) PC/タブレットは元の値に固定（上書きガード） */
+@media (min-width: 481px) and (max-width: 992px){
+  /* 既存のタブレット指定を再掲して固定 */
+  #iz29i{ top:497px; right:8px; font-size:31px; transform:none; }
+  #if5oz, #ibnhf{ margin-top:0; transform:none; }
+}
+@media (min-width: 993px){
+  /* 既存のPC指定を再掲して固定 */
+  #iz29i{ top:601px; right:33px; font-size:39px; transform:none; }
+  #if5oz, #ibnhf{ margin-top:0; transform:none; }
+}
+
+/* 2) モバイルだけで位置微調整と書体変更を適用 */
+@media (max-width: 480px){
+  /* 位置だけ変更（あなたが今の見た目にしている数値） */
+  #iz29i{ top:404px; right:12px; text-shadow:0 2px 6px rgba(0,0,0,.35); }
+
+  /* 入域申請／利用規約を少し上へ。PCには効かない */
+  #if5oz, #ibnhf{ margin-top:-10px; }
+
+  /* フォント変更をモバイルに限定（PCは影響なし） */
+  #iz29i,
+  #if5oz, #ibnhf{
+    font-family: 'Noto Serif JP', serif !important;
+    letter-spacing: .05em;
+  }
+}
+
+/* 3) もし .gjs-t-link を全体で上書きしていたら無効化してPC影響を断つ */
+@media (max-width: 480px){
+  .gjs-t-link{ font-family: inherit !important; } /* モバイルだけで調整 */
+}
