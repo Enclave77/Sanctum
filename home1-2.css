@@ -551,44 +551,32 @@ input[type="submit"].form-control:hover{
     padding:6px 10px;
     color:rgba(126,179,236,.81);
     position:absolute;
-    left:0;
-  }
+    left:0; }
 
-  /* ヒーロー高さは現状維持 */
   #iwfdv6{ min-height:380px; }
 
-  /* 「初めに、聖域を」：固定→絶対。位置だけ微調整。サイズは触らない */
   #iz29i{
-    position:absolute;    /* ← fixed を廃止 */
-    top:404px;            /* 400〜408で±2px調整可 */
+    position:absolute;  
+    top:404px;          
     right:12px;
-    font-size:16px;       /* 既存のまま */
-    font-family:'Noto Serif JP', serif; /* 任意。不要なら削除 */
+    font-size:16px;     
+    font-family:'Noto Serif JP', serif; 
     font-weight:400;
     color:rgba(255,255,255,.92);
-    text-shadow:0 2px 6px rgba(0,0,0,.35);
-  }
+    text-shadow:0 2px 6px rgba(0,0,0,.35);  }
 
-  /* 見出しと本文の間隔だけ整える。サイズは変更しない */
   #i5hev{
-    position:absolute;    /* 途中切れ修正（absではなくabsolute） */
+    position:absolute;  
     right:935px;
     top:703px;
-    /* 既存のフォント指定は上にあるのでここでは触らない */
-    margin-bottom:6px;
-  }
+    margin-bottom:6px; }
 
-  /* 説明文：指示どおり 1行＋改行 */
   #ifd24{ white-space:nowrap; }
   #ibeyk{ white-space:normal; margin-top:4px; }
 
-  /* 入域申請・利用規約：少しだけ上詰め。サイズは触らない */
   #if5oz, #ibnhf{ margin-top:-8px; }
 
-  /* ヒーロー下の圧迫を回避（任意） */
   #iwfdv6{ padding-bottom:18px; }
-}
-/* ===== ここまでで必ず閉じる ===== */
 
   #i5hev{
     position:absolute;
@@ -685,7 +673,6 @@ input[type="submit"].form-control:hover{
 
   #iz29i{ position:absolute !important; right:14px !important; bottom:12px !important; }
 
-}
 
   #i5hev{ margin-bottom:4px !important; }
   #iww9z{ margin-top:0 !important; }
