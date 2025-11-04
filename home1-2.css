@@ -495,294 +495,70 @@ input[type="submit"].form-control:hover{
 }
 @media (max-width: 480px){
   #izpm9c-2-2-2{
-    padding-top:10px;
-    padding-right:10px;
-    padding-bottom:10px;
-    padding-left:10px;
+    padding:10px;
   }
-  #io3aji{
-    font-size:20px;
-    padding:6px 10px;
-    color:rgba(126, 179, 236, 0.81);
-    position:absolute;
-    left:0px;
-  }
-  #iwfdv6{
-    min-height:380px;
-  }
-  #iwfdv6 #i4mxj{
-    text-shadow:0 1px 5px rgba(0, 0, 0, 0.35);
-  }
-  .gjs-section{
-    flex-direction:row;
-    padding-top:20px;
-    padding-right:0px;
-    padding-bottom:20px;
-    padding-left:0px;
-    margin-top:0px;
-    margin-right:0px;
-    margin-bottom:0px;
-    margin-left:0px;
-  }
-  #i6bps{
-    font-size:27px;
-    border-top-left-radius:30px;
-    border-left-width:59px;
-    font-weight:300;
-    text-align:left;
-    text-shadow:unset;
-    padding-top:0px;
-    padding-right:0px;
-    padding-bottom:0px;
-    padding-left:0px;
-    margin-top:0px;
-    margin-right:0px;
-    margin-bottom:0px;
-    margin-left:0px;
-    position:absolute;
-    top:0px;
-    bottom:0px;
-    display:block;
- .gjs-t-link{ font-family: inherit !important; }
 
-
+  /* ブランド名 */
   #io3aji{
     font-size:20px;
     padding:6px 10px;
     color:rgba(126,179,236,.81);
     position:absolute;
-    left:0; }
+    left:0;
+  }
 
-  #iwfdv6{ min-height:380px; }
+  /* ヒーローセクション */
+  #iwfdv6{
+    min-height:380px;
+    padding-bottom:18px; /* 下端の圧迫回避 */
+    position:relative;   /* 絶対配置の基準 */
+  }
 
+  #iwfdv6 #i4mxj{
+    text-shadow:0 1px 5px rgba(0,0,0,.35);
+  }
+
+  .gjs-section{
+    flex-direction:row;
+    padding:20px 0;
+    margin:0;
+  }
+
+  /* 左上の Enclave */
+  #i6bps{
+    font-size:27px;
+    font-weight:300;
+    text-align:left;
+    position:absolute;
+    top:0;
+    bottom:0;
+    display:block;
+  } /* ←ここで必ず閉じる */
+
+  /* リンクのフォントをComic Sansから解除（スマホのみ） */
+  .gjs-t-link{ font-family:inherit !important; }
+
+  /* 「初めに、聖域を」 */
   #iz29i{
-    position:absolute;  
-    top:404px;          
+    position:absolute;
+    top:404px;          /* ±2pxで微調整可 */
     right:12px;
-    font-size:16px;     
-    font-family:'Noto Serif JP', serif; 
+    font-size:16px;     /* 既存サイズ維持。小さくするなら 14.5px */
+    font-family:'Noto Serif JP', serif;
     font-weight:400;
+    letter-spacing:.08em;
     color:rgba(255,255,255,.92);
-    text-shadow:0 2px 6px rgba(0,0,0,.35);  }
+    text-shadow:0 2px 6px rgba(0,0,0,.35);
+    z-index:5;
+    display:block;
+    visibility:visible;
+    opacity:1;
+  }
 
-  #i5hev{
-    position:absolute;  
-    right:935px;
-    top:703px;
-    margin-bottom:6px; }
-
+  /* 説明文：1行＋改行 */
   #ifd24{ white-space:nowrap; }
   #ibeyk{ white-space:normal; margin-top:4px; }
 
-  #if5oz, #ibnhf{ margin-top:-8px; }
-
-  #iwfdv6{ padding-bottom:18px; }
-
-  #i5hev{
-    position:absolute;
-    right:181px;
-    top:455px;
-    font-size:28px;
-    color:#707070;
-  }
-  #iww9z{
-    padding:10px;
-    color:rgba(95, 95, 95, 1);
-    font-size:8px;
-    position:absolute;
-    right:74px;
-    top:500px;
-    margin-top:0px;
-    margin-right:0px;
-    margin-bottom:0px;
-    margin-left:0px;
-    padding-top:10px;
-    padding-right:10px;
-    padding-bottom:0px;
-    padding-left:10px;
-  }
-  #if5oz{
-    padding:10px;
-    color:rgba(137, 184, 208, 1);
-    position:absolute;
-    right:246px;
-    box-shadow:unset;
-    text-shadow:unset;
-    filter:unset;
-    backdrop-filter:unset;
-    font-weight:100;
-    font-family:'Noto Sans JP';
-    font-size:11px;
-    top:530px; }
-  #ibnhf{
-    padding:10px;
-    position:absolute;
-    right:254px;
-    color:#7eb5cf;
-    font-weight:100;
-    font-size:9px;
-    top:554px; }
-  
-  #im5x{
-    padding-top:0.016px;
-    padding-right:0px;
-    padding-bottom:0px;
-    padding-left:0px;
-    background-image:linear-gradient(rgba(251, 251, 251, 1) 1%, rgba(251, 251, 251, 1) 100%);
-    background-position:0px 0px;
-    background-size:100% 100%;
-    background-repeat:repeat;
-    background-attachment:scroll;
-    background-origin:padding-box; }
-  
-  #ifd24{
-    text-align:left;
-    margin:0px 0px 0px 0px; }
-  
-  .gjs-t-link{
-    font-family:Arial, Helvetica, sans-serif;
-    font-size:9px;
-    font-weight:100;
-    margin:0px 0px 0px 0px; }
-  
-  #ibnhf-2{
-    padding:10px;
-    position:absolute;
-    right:254px;
-    color:#7eb5cf;
-    font-weight:100;
-    font-size:9px;
-    top:554px; }
-
-  body{ display:flex !important; flex-direction:column !important; }
-  #im5x{ padding-bottom:24px !important; } 
-  #ilvbo5, #iwfdv6, #i5hev, #iww9z, #if5oz, #ibnhf-2{
-    align-self:stretch !important; width:100% !important; }
-
-  #ilvbo5{ order:0 !important; }
-  #iwfdv6{ order:1 !important; min-height:54vh !important; background-position:center right 18% !important; }
-  #i5hev{ order:2 !important; position:static !important; margin:28px 20px 10px !important;
-          font-size:34px !important; line-height:1.15 !important; color:#6d6d6d !important; font-weight:500 !important; text-align:left !important; }
-  #iww9z{ order:3 !important; position:static !important; margin:0 20px 12px !important;
-          font-size:14.5px !important; line-height:1.9 !important; color:#666 !important; text-align:left !important; }
-  #if5oz{ order:4 !important; position:static !important; display:block !important;
-          margin:6px 20px 0 !important; font-size:15px !important; color:#8fb6da !important; text-decoration:underline !important; text-align:left !important; }
-  #ibnhf{ display:none !important; }        
-  #ibnhf-2{ order:5 !important; position:static !important; display:block !important;
-            margin:6px 20px 24px !important; font-size:15px !important; color:#8fb6da !important; text-decoration:underline !important; text-align:left !important; }
-
-  #iz29i{ position:absolute !important; right:14px !important; bottom:12px !important; }
-
-
-  #i5hev{ margin-bottom:4px !important; }
-  #iww9z{ margin-top:0 !important; }
-  #if5oz{
-    font-size:16.5px !important;
-    font-weight:500 !important;
-    color:#7eaad4 !important; }
-
-  #ibnhf-2{
-    font-size:15px !important;
-    font-weight:400 !important;
-    color:#9dbcd9 !important; }
-
-  #ifd24,
-  #ibeyk{
-    font-size:12px;
-    line-height:1.6;
-    color:#666666; }
-
-  #ifd24{
-    white-space:nowrap; }
-
-  #ibeyk{
-    white-space:normal;
-    margin-top:4px; }
-
-
-  #iz29i{
-    top:412px;  
-    transform:translate(6px, 2px); }
-
-  #if5oz,
-  #ibnhf,
-  #ibnhf-2{
-    position:absolute;
-    top:auto;
-    transform:translateY(-6px); }
-
-  #iz29i{
-    top:406px;    
-    right:10px;
-    transform:none;
-    text-shadow:0 2px 6px rgba(0,0,0,.35); }
-
-  #iwfdv6{
-    padding-bottom:22px; }
-
-  #if5oz, #ibnhf{
-    margin-top:-10px;    /* -6px → -10px */ }
-
-@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;600&display=swap');
-
-#iz29i {
-  font-family: 'Noto Serif JP', serif !important;
-  font-weight: 400;
-  font-size: 15px;
-  letter-spacing: 0.08em;
-  color: rgba(255, 255, 255, 0.92);
-  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.3); }
-
-#if5oz, #ibnhf {
-  font-family: 'Noto Serif JP', serif !important;
-  font-weight: 400;
-  font-size: 13px;
-  letter-spacing: 0.05em;
-  color: #7d8ca0; }
-
-#if5oz:hover, #ibnhf:hover {
-  color: #a5b8cc; }
-
-  #iz29i{
-    position:absolute;
-    top:404px;   
-    right:12px;    
-    transform:none;
-    text-shadow:0 2px 6px rgba(0,0,0,.35);
-    z-index:2; }
-
-  #iwfdv6{ padding-bottom:18px; }
-
-a {
-  color: #6d8ba7; }
-
-a:hover {
-  color: #8fa9c2; }
-
-  #iz29i{
-    top:406px;     
-    right:14px; }
-
-  #i5hev{
-    margin-bottom:6px; }
-
-  #if5oz, #ibnhf{
-    margin-top:4px; }
-
-  #iz29i{ top:497px; right:8px; font-size:31px; transform:none; }
-  #if5oz, #ibnhf{ margin-top:0; transform:none; }
-
-  #iz29i{ top:601px; right:33px; font-size:18px; transform:none; }
-  #if5oz, #ibnhf{ margin-top:0; transform:none; }
-
-  #iz29i{ top:404px; right:12px; text-shadow:0 2px 6px rgba(0,0,0,.35); }
-
-  #if5oz, #ibnhf{ margin-top:-10px; }
-
-  #if5oz, #ibnhf{
-    font-family: 'Noto Serif JP', serif !important;
-    letter-spacing: .05em; }
-
-.gjs-t-link{ font-family: inherit !important;
- }
-}
+  /* 入域申請／利用規約（#ibnhf-2 を使う場合） */
+  #if5oz, #ibnhf-2{ margin-top:-8px; }
+} /* ← @media の閉じカッコ（外側） */
