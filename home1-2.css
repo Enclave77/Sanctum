@@ -576,7 +576,7 @@ input[type="submit"].form-control:hover{
 } /* ← モバイル @media をここで確実に閉じる */
 
 /* ===== モバイル(～480px) を正しく閉じる＋位置だけ指定 ===== */
-@media (max-width: 480px){
+@media (min-width: 480px){
   #izpm9c-2-2-2{ padding:10px; }
   #io3aji{ font-size:20px; padding:6px 10px; color:rgba(126,179,236,.81); position:absolute; left:0; }
   #iwfdv6{ min-height:380px; }
@@ -597,7 +597,7 @@ input[type="submit"].form-control:hover{
 } /* ← @media自体のクローズ */
 
 /* ===== タブレット以下(～993px)のリンク装飾を統一 ===== */
-@media (max-width: 993px){
+@media (min-width: 993px){
   #if5oz, #ibnhf-2{
     color:#aac5e1; text-decoration:underline;
     text-underline-offset:4px; text-decoration-thickness:1.2px;
@@ -605,17 +605,5 @@ input[type="submit"].form-control:hover{
   }
   #if5oz{ font-size:18px; margin-top:14px; }
   #ibnhf-2{ font-size:16px; margin-top:10px; }
-  #if5oz:hover, #ibnhf-2:hover{ opacity:.8; }
-}
-
-/* ===== PC(993px～)は後勝ちで強制。色は利用規約と同じ系統 ===== */
-@media (min-width: 993px){
-  #if5oz, #ibnhf-2{
-    color:#aac5e1 !important; text-decoration:underline;
-    text-underline-offset:4px; text-decoration-thickness:1.2px;
-    display:inline-block; transition:opacity .25s;
-  }
-  #if5oz{ font-size:23px !important; margin-top:14px; }
-  #ibnhf-2{ font-size:19px !important; margin-top:10px; }
   #if5oz:hover, #ibnhf-2:hover{ opacity:.8; }
 }
