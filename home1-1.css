@@ -792,3 +792,35 @@ a:hover {
     margin-top:4px;
   }
 }
+/* 1) PC/タブレットは元の値に固定（上書きガード） */
+@media (min-width: 481px) and (max-width: 992px){
+  /* 既存のタブレット指定を再掲して固定 */
+  #iz29i{ top:497px; right:8px; font-size:31px; transform:none; }
+  #if5oz, #ibnhf{ margin-top:0; transform:none; }
+}
+@media (min-width: 993px){
+  /* 既存のPC指定を再掲して固定 */
+  #iz29i{ top:601px; right:33px; font-size:39px; transform:none; }
+  #if5oz, #ibnhf{ margin-top:0; transform:none; }
+}
+
+/* 2) モバイルだけで位置微調整と書体変更を適用 */
+@media (max-width: 480px){
+  /* 位置だけ変更（あなたが今の見た目にしている数値） */
+  #iz29i{ top:404px; right:12px; text-shadow:0 2px 6px rgba(0,0,0,.35); }
+
+  /* 入域申請／利用規約を少し上へ。PCには効かない */
+  #if5oz, #ibnhf{ margin-top:-10px; }
+
+  /* フォント変更をモバイルに限定（PCは影響なし） */
+  #iz29i,
+  #if5oz, #ibnhf{
+    font-family: 'Noto Serif JP', serif !important;
+    letter-spacing: .05em;
+  }
+}
+
+/* 3) もし .gjs-t-link を全体で上書きしていたら無効化してPC影響を断つ */
+@media (max-width: 480px){
+  .gjs-t-link{ font-family: inherit !important; } /* モバイルだけで調整 */
+}
