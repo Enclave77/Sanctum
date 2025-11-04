@@ -505,6 +505,10 @@ input[type="submit"].form-control:hover{
   h2{
     font-size:24px;
   }
+  #if5oz{
+    margin-top:14px;
+    font-size:30px;
+  }
 }
 
 /* ===== MOBILE ≤480px だけ ===== */
