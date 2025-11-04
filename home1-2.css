@@ -403,7 +403,7 @@ input[type="submit"].form-control:hover{
     transform:translateY(-5px);
   }
 }
-@media (min-width: 992px){
+@media (max-width: 992px){
   h1{
     font-size:36px;
   }
@@ -498,7 +498,7 @@ input[type="submit"].form-control:hover{
   }
 }
 
-@media (min-width: 768px){
+@media (max-width: 768px){
   h1{
     font-size:28px;
   }
@@ -507,7 +507,7 @@ input[type="submit"].form-control:hover{
   }
 }
 /* ===== MOBILE ≤480px だけ ===== */
-@media (min-width: 480px){
+@media (max-width: 480px){
   #izpm9c-2-2-2{
     padding-top:10px;
     padding-right:10px;
@@ -575,35 +575,47 @@ input[type="submit"].form-control:hover{
   */
 } /* ← モバイル @media をここで確実に閉じる */
 
-/* ===== モバイル(～480px) を正しく閉じる＋位置だけ指定 ===== */
-@media (min-width: 480px){
-  #izpm9c-2-2-2{ padding:10px; }
-  #io3aji{ font-size:20px; padding:6px 10px; color:rgba(126,179,236,.81); position:absolute; left:0; }
+/* ④ PC（993px以上）＝ベースCSSに記述。@media不要 */
+
+/* ③ ノートPC帯の既定（〜992px） */
+@media (max-width: 992px){
+  /* ここに 769–992px 用の“基準”を置く */
+  #iz29i{
+    position:absolute; top:497px; right:8px;
+    font-size:31px; font-weight:100; color:rgba(255,255,255,1);
+  }
+  #if5oz, #ibnhf-2{
+    color:#aac5e1;
+    text-decoration:underline; text-underline-offset:4px; text-decoration-thickness:1.2px;
+    display:inline-block; transition:opacity .25s ease;
+    font-size:18px;
+  }
+}
+
+/* ② タブレット上書き（〜768px） */
+@media (max-width: 768px){
+  #iz29i{
+    top:520px; right:15px;
+    font-size:22px; color:rgba(255,255,255,.9);
+  }
+  #if5oz, #ibnhf-2{ font-size:17px; }
+}
+
+/* ① スマホ上書き（〜480px）※一番最後に置く */
+@media (max-width: 480px){
+  #io3aji{
+    font-size:20px; padding:6px 10px;
+    color:rgba(126,179,236,.81);
+    position:absolute; left:0;
+  }
   #iwfdv6{ min-height:380px; }
   #iwfdv6 #i4mxj{ text-shadow:0 1px 5px rgba(0,0,0,.35); }
-  .gjs-section{ flex-direction:row; padding:20px 0; margin:0; }
 
-  #i6bps{
-    font-size:27px; border-top-left-radius:30px; border-left-width:59px;
-    font-weight:300; text-align:left;
-    padding:0; margin:0; position:absolute; top:0; bottom:0; display:block;
-  } /* ← この } が欠けていた */
-
-  /* ヒーローのコピーの位置だけ。サイズは触らない */
   #iz29i{
-    position:absolute; top:404px; right:12px;
-    color:rgba(255,255,255,.92); text-shadow:0 2px 6px rgba(0,0,0,.35);
+    position:fixed; top:404px; right:12px;
+    font-size:16px; font-weight:100;
+    color:rgba(255,255,255,.92);
+    text-shadow:0 2px 6px rgba(0,0,0,.35);
   }
-} /* ← @media自体のクローズ */
-
-/* ===== タブレット以下(～993px)のリンク装飾を統一 ===== */
-@media (min-width: 993px){
-  #if5oz, #ibnhf-2{
-    color:#aac5e1; text-decoration:underline;
-    text-underline-offset:4px; text-decoration-thickness:1.2px;
-    display:inline-block; transition:opacity .25s;
-  }
-  #if5oz{ font-size:18px; margin-top:14px; }
-  #ibnhf-2{ font-size:16px; margin-top:10px; }
-  #if5oz:hover, #ibnhf-2:hover{ opacity:.8; }
+  #if5oz, #ibnhf-2{ font-size:15px; }
 }
