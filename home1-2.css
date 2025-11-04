@@ -484,7 +484,29 @@ input[type="submit"].form-control:hover{
   .gjs-t-link{
     margin:0px 1px 0px 0px;
   }
+  /* PCのみ：入域申請と利用規約の色を統一 */
+  #if5oz, #ibnhf{
+    color:#aac5e1;                  /* モバイルと同系統の淡青 */
+    font-family: 'Verdana', sans-serif;
+    text-decoration:underline;
+    text-underline-offset:4px;
+    text-decoration-thickness:1.2px;
+    display:inline-block;
+    transition:opacity .25s ease;
+  }
+  #if5oz{
+    margin-top:14px;
+    font-size:18px;
+  }
+  #ibnhf{
+    margin-top:10px;
+    font-size:16px;
+  }
+  #if5oz:hover, #ibnhf:hover{
+    opacity:0.8;
+  }
 }
+
 @media (max-width: 768px){
   h1{
     font-size:28px;
